@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+<header>
+   <div class="headerBackground">
+       <div class="adjust">
+        <img src="resources/menu.svg" width="40" height="40">
+        </div>
+    <div class= "container" >
+        
+        <div class="adjust" >
+        <img src="resources/logo.png" width="200" height="50">
+        </div>
+        <div>
+        <p>National Security Agency Central Security Service</p>
+        <h4> Defending our Nation. Securing the Future.</h4>
+        </div>
+       </div> 
+       <div class="adjust">
+       <img src="resources/search.png" width="40" height="40">
+       </div>
+    </div>
+    
+</header>
+    
+    <br>
+    
+    
+   <div class="breadcrumbContianer">
+    <ul class="breadcrumb">
+  <li><a href="#">HOME</a></li>
+  <li><a href="#">RESOURCES FOR ...</a></li>
+  <li><a href="#">EVERYONE</a></li>
+  <li><a href="#">MEDIA DESTRUCTION GUIDANCE </a></li>
+</ul>
+    </div>
+    
+    <div class="title">
+    <h1>Media Destuction Guidance</h1>
+    </div>
+    <div class="intro">
+    <p><b>Introduction:</b> This web page provides guidance for sanitization of information system (IS) storage devices  This web page provides the NSA/CSS Evaluated Products Lists for equipment that meet NSN/CSS specifications. These lists applies to all NSA/CSS elements and pertains to all IS storage devices utilized by NSA/CSS elements, contractors, and personnel.
+NSA/CSS 
+<br>
+     <b>Policy:</b> For disposal or recycling in accordance with NSA/CSS Policy Statement 9-12, "NSA/CSS Storage Device Sanitization" (Reference a). information stored on these devices may range from UNCLASSIFIED to TOP SECRET and may include compartmented, sensitive, or limited-distribution material. 
+  </p>
+    </div>
+    
+        <div class="title">
+    <h3>Search Evaluated Proudcts List for Device</h3>
+    </div>
+    
+    <div class="Searchcontainer">
+        
+        <div align="center">
+            <div>
+                   <h4>Search for a device</h4>
+                <h6> Put in all available information</h6>
+                <table>
+        
+                      <tr>
+                          <td>
+                 <label for="tou"> Type of unit </label>
+                          </td>
+                          <td>
+                 <input type="text" id="tou" name="tou">
+        </td>
+                    </tr>
+                      <tr>
+                          <td>
+                 <label for="name"> Model number/ name </label>
+                          </td>
+                          <td>
+                 <input type="text" id="name" name="name">
+</td>
+                </tr>
+                      <tr>
+                          <td>
+                 <label for="vendor"> Vendor </label>
+                          </td>
+                          <td>
+                 <input type="text" id="vendor" name="vendor">
+</td>
+            </tr>
+                      
+                    
+                  </table>
+
+                <button type="button" name="load_data" id="load_data" class="btn btn-info">Search</button>
+            </div>
+            <br />
+            <div id="employee_table">
+            </div>
+        </div>
+    </div>
+    
+        <div class="title">
+    <h3>Evaluated Proudcts List PDF </h3>
+    </div>
+    <div>
+    <ul>
+ <li><a href="#" target="_blank">NSA/CSS Storage Device Sanitization Manual </a> Dated 19&nbsp;December&nbsp;2017</li>
+ <li><a href="#" target="_blank">NSA/CSS Evaluated Products List for Hard Disk Destruction Devices</a> Dated March 2020</li>
+ <li><a href="#" target="_blank">NSA/CSS Evaluated Products List for Magnetic Degaussers</a> Dated March 2020</li>
+ <li><a href="#" target="_blank">NSA/CSS Evaluated Products List for Optical Destruction Devices </a> Dated March 2020</li>
+ <li><a href="#" target="_blank">NSA/CSS Evaluated Products List for Paper Disintegrators</a> Dated March 2020</li>
+ <li><a href="#" target="_blank">NSA/CSS Evaluated Products List for Paper Shredders</a> Dated March 2020</li>
+ <li><a href="#" target="_blank">NSA/CSS Evaluated Product List for Punched Tape Disintegrators</a> Dated March 2020</li>
+ <li><a href="#" target="_blank">NSA/CSS Evaluated Product List for Solid State Disintegrators</a> Dated March 2020</li>
+</ul>
+    </div>
+    <div class="intro">
+    <p>S
+       For further technical information contact the Center for Storage Device Sanitization Research at (301) 688-1053 or <a href="mailto:crdsr@nsa.gov">csdsr@nsa.gov</a> 
+        </p>
+    </div>
+    
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+ $('#load_data').click(function(){
+  $.ajax({
+   url:"data.csv",
+   dataType:"text",
+   success:function(data)
+   {
+    var employee_data = data.split(/\r?\n|\r/);
+       var arr= [];
+       arr.push(employee_data[0]);
+    for(var i = 1; i<employee_data.length; i++){
+        var row = employee_data[i].split(",");
+        var tou = String(document.getElementById("tou").value).toLowerCase();
+        var name = String(document.getElementById("name").value).toLowerCase();
+        var vendor = String(document.getElementById("vendor").value).toLowerCase();
+        //var SearchedText= String(document.getElementById("search").value).toLowerCase();
+        //var typeNumber= parseInt(document.getElementById("By").value, 10);
+        //var hold = String(row[typeNumber]).toLowerCase();
+        var csvTouText = String(row[0]).toLowerCase();
+        var csvNameText = String(row[1]).toLowerCase();
+        var csvVendorText = String(row[2]).toLowerCase();
+        if(csvTouText.includes(tou) && csvNameText.includes(name) && csvVendorText.includes(vendor)){
+            arr.push(employee_data[i]);
+        }
+       
+    }
+       
+          
+       
+       //print
+    var table_data = '<table class="table table-bordered table-striped">';
+       
+    for(var count = 0; count<arr.length; count++){
+     var cell_data = arr[count].split(",");
+     table_data += '<tr>';
+     for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+     {
+      if(count === 0)
+      {
+       table_data += '<th>'+cell_data[cell_count]+'</th>';
+      }
+      else
+      {
+       table_data += '<td>'+cell_data[cell_count]+'</td>';
+      }
+     }
+     table_data += '</tr>';
+    }
+    table_data += '</table>';
+       
+    $('#employee_table').html(table_data);
+   }
+  });
+ });
+ 
+});
+</script>
