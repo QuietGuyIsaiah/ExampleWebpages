@@ -132,6 +132,19 @@ NSA/CSS
 </html>
 
 <script>
+
+   /* function record(){
+        $.ajax({
+  url: "write.php",
+  data: {lineData: "foo"},
+  success: function(result){
+      console.log('the data was successfully sent to the server');
+      console.log(result);
+  }
+});
+    }*/
+    
+    
 $(document).ready(function(){
  $('#load_data').click(function(){
   $.ajax({
@@ -139,6 +152,7 @@ $(document).ready(function(){
    dataType:"text",
    success:function(data)
    {
+     //record();
     var employee_data = data.split(/\r?\n|\r/);
        var arr= [];
        arr.push(employee_data[0]);
@@ -175,7 +189,38 @@ $(document).ready(function(){
       }
       else
       {
-       table_data += '<td>'+cell_data[cell_count]+'</td>';
+          var addLink;
+          var finalStr = [];
+          
+          if (String(cell_data[0]).localeCompare("Hard Disk Drive Destruction Devices") == 0){
+              addLink = '<a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLHardDiskDriveDestructionDevicesMarch2020.pdf?ver=2020-03-17-094745-757" target="_blank">';
+          }
+          else if (String(cell_data[0]).localeCompare("Magnetic Degaussers") == 0){
+                addLink = '<a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLMagneticDegaussersMarch2020.pdf?ver=2020-03-17-094749-040" target="_blank">';
+          }
+           else if (String(cell_data[0]).localeCompare("Optical Destruction Devices") == 0){
+                addLink = '<a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLOpticalDestructionDevicesMarch2020.pdf?ver=2020-03-17-094733-693" target="_blank">';
+          }
+          else if (String(cell_data[0]).localeCompare("Paper Disintegrators") == 0){
+                addLink = '<a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLPaperDisintegratorsMarch2020.pdf?ver=2020-03-17-094733-413" target="_blank">';
+          }
+          else if (String(cell_data[0]).localeCompare("Paper Shredders") == 0){
+                addLink = '<a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLPaperShreddersMarch2020.pdf?ver=2020-03-17-094747-943" target="_blank">';
+          }
+            else if (String(cell_data[0]).localeCompare("Punched Tape Disintegrators") == 0){
+                addLink = '<a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLPunchedTapeDisintegratorsMarch2020.pdf?ver=2020-03-17-094744-633" target="_blank">';
+          }
+          else{
+              addLink = '<a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLSolidStateDisintegratorsMarch2020.pdf?ver=2020-03-17-094746-867" target="_blank">';
+          }
+          
+          var alterMN = addLink + cell_data[1] + "</a>";
+          finalStr.push(cell_data[0]);
+           finalStr.push(alterMN);
+           finalStr.push(cell_data[2]);
+           finalStr.push(cell_data[3]);
+          
+       table_data += '<td>'+finalStr[cell_count]+'</td>';
       }
      }
      table_data += '</tr>';
