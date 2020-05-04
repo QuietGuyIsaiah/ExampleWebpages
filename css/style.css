@@ -64,3 +64,8 @@ ul.breadcrumb li a:hover {
 .intro {
     margin: 0px 5% 20px 5%;
 }
+
+.pagespacing {
+    margin-left: 5%;
+    margin-right: 5%;
+}
