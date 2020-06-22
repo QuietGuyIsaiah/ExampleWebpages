@@ -1,0 +1,154 @@
+.headerBackground{
+    background-color: rgb(0,84,139);
+    display: flex;
+}
+.container {
+  position: relative;
+    display: flex;
+    color: white;
+}
+.container div {
+    display: inline-block;
+}
+
+
+.adjust {
+padding-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px
+}
+
+.breadcrumbContianer{
+margin-top: 20px;
+flex: 2 1 auto;
+white-space: nowrap;
+}
+
+ul.breadcrumb {
+
+  list-style: none;
+  background-color: #ffffff;
+}
+ul.breadcrumb li {
+  display: inline;
+  
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: ">";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+.outerBox {
+      margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+
+    
+}
+.outerBox2 {
+      margin-left: 10%;
+    margin-right: 10%; 
+}
+
+
+
+
+.title {
+    margin-bottom: 20px;
+}
+
+.line{
+    margin-bottom: 40px;
+    border-top: 4px solid gold;
+    width: 60px;
+}
+
+.Searchcontainer {
+    border: 1px solid gray;
+    margin: 0px 5% 20px 5%;
+}
+
+
+
+
+.refLink {
+    min-width: 15%;
+    
+   
+}
+
+.refLink table{
+   border: 
+}
+
+.refLink ul {
+  padding: 0;
+    list-style-type: none;
+}
+
+
+
+
+
+
+
+
+
+video {
+    display: block;
+	margin: 0 auto;
+}
+
+#refTable {
+    background-color: gainsboro;
+    border: 5px solid black;
+    margin-left: auto;
+  margin-right: auto;
+    width: 90%;
+    /*text-align: center;*/
+}
+
+#refTable th {
+    text-align: center;
+}
+
+
+
+#introDiv {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+#videoDiv {
+     margin-top: 20px;
+
+}
+
+#EPLDiv {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+td {
+  padding: 3px;
+}
+
+#vendorTrack {
+    list-style: none;
+}
+
+.vtSmall li{
+    padding-bottom: 10px;
+      padding-top: 10px;
+}
