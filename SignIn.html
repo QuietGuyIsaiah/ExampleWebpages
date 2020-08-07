@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  
+</head>
+
+
+<body>
+  
+    <header>
+        <div class="headerBackground">
+            <div class="adjust">
+                <img src="resources/menu.svg" width="40" height="40">
+            </div>
+            <div class="container">
+
+                <div class="adjust">
+                    <img src="resources/logo.png" width="200" height="50">
+                </div>
+                <div>
+                    <p>National Security Agency Central Security Service</p>
+                    <h4> Defending our Nation. Securing the Future.</h4>
+                </div>
+            </div>
+            <div class="adjust">
+                <img src="resources/search.png" width="40" height="40">
+            </div>
+        </div>
+
+    </header>
+    
+    	
+    <br>
+
+  
+    <div class= "outerBox2">
+
+    <div>
+         
+    <form style="border:1px solid #ccc">
+
+    <h1 style="margin-left: 45%">Sign In</h1>
+
+    <hr>
+        <table class="SISU"> 
+            <tr>
+            <td><label for="typeOfLogin"><b>Are you?</b></label></td>
+            <td>
+                <select id="select1" onchange="setForm(this.value)">
+<option value="1">Customer/ Employee</option>
+<option value="2">Vendor</option>
+                </select>
+                </td>
+                 </tr>
+                  </table>
+               <table class="SISU" id="1"> 
+            
+           
+        <tr>
+            <td>
+                 <label for="eml"><b>Email</b></label>
+                </td> 
+            <td>
+             <input type="email" placeholder="Enter Email" name="eml" required>
+            </td>
+        </tr>
+             <tr>
+            <td>
+                 <label for="psw"><b>Password</b></label>
+                </td> 
+            <td>
+             <input type="password" placeholder="Enter Password" name="psw" required>
+            </td>
+        </tr>
+              </table>
+            <table class="SISU" id="2" style='display:none;'> 
+             <tr>
+            <td>
+                 <label for="vId"><b>Vendor Id</b></label>
+                </td> 
+            <td>
+             <input type="email" placeholder="Enter Vendor ID" name="vId" required>
+            </td>
+        </tr>
+             <tr>
+            <td>
+                 <label for="psw"><b>Password</b></label>
+                </td> 
+            <td>
+             <input type="password" placeholder="Enter Password" name="psw" required>
+            </td>
+        </tr>
+        </table>
+
+  
+    <div>
+       
+        <button type="button" name="OtherPage" class="button">Sign In</button>
+</div>
+
+</form>
+    
+        
+        
+        
+</div>
+    <div><a href="vendor.html">Example of Vendor Page</a> </div>
+    <div><a href="">Example of Customer Page</a> </div>
+    <div> <a href="">Example of Employee Page</a></div>
+        
+    </div>
+    <!-- 
+
+
+    
+
+
+<label>Select Form</label>
+<select id="select1" onchange="setForm(this.value)">
+<option value="form1">Form 1</option>
+<option value="form2">Form 2</option>
+</select>
+<div id="form1">
+<label>Form 1</label>
+<form  method="post"  name="firstform" action="">
+<button id="btn1" value="Select All">Select All</button>
+<button id="btn3" value="Delete CheckBox">Delete CheckBox</button>  <br><br>
+<input type="checkbox" name="chk" value="One" id="ck1">One</input><br>
+<input type="checkbox" name="chk" value="Two" id="ck2">Two</input><br>
+<input type="checkbox" name="chk" value="Three" id="ck3">Three</input<br>
+<input type="checkbox" name="chk" value="Four" id="ck4">Four</input>br>
+<input type="checkbox" name="chk" value="Five" id="ck5">Five</input>br>
+<button id="btn4" value="Status">Status </button>
+</form><hr>
+    </div>
+<div  id="form2" style="display: none">
+<label>Form 2</label>
+<form name="secondform" action="">
+Name : <input type="text" name="name" placeholder="Enter Your Name"><br><br>
+Email : <input type="text" name="email" placeholder="Enter Email id"><br><br>
+<button id="btn5" name="chk" >Submit</button>
+</form><hr>
+</div>
+-->
+
+    
+   
+ <script type="text/javascript">
+function setForm(value) {
+ 
+ 
+    if(value == '1'){
+                document.getElementById('1').style='display:block;';
+                document.getElementById('2').style='display:none;';
+            }
+            else {
+
+                document.getElementById('2').style = 'display:block;';
+                   document.getElementById('1').style = 'display:none;';
+            }
+
+}
+
+</script>   
+   
+</body>
+
+</html>
+

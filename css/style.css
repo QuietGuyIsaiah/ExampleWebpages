@@ -1,12 +1,14 @@
-.headerBackground{
-    background-color: rgb(0,84,139);
+.headerBackground {
+    background-color: rgb(0, 84, 139);
     display: flex;
 }
+
 .container {
-  position: relative;
+    position: relative;
     display: flex;
     color: white;
 }
+
 .container div {
     display: inline-block;
 }
@@ -14,52 +16,56 @@
 
 
 .adjust {
-padding-left: 10px;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 20px
+    padding-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px
 }
 
-.breadcrumbContianer{
-margin-top: 20px;
-flex: 2 1 auto;
-white-space: nowrap;
+.breadcrumbContianer {
+    margin-top: 20px;
+    flex: 2 1 auto;
+    white-space: nowrap;
 }
 
 ul.breadcrumb {
 
-  list-style: none;
-  background-color: #ffffff;
-}
-ul.breadcrumb li {
-  display: inline;
-  
+    list-style: none;
+    background-color: #ffffff;
 }
 
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: ">";
+ul.breadcrumb li {
+    display: inline;
+
 }
+
+ul.breadcrumb li + li:before {
+    padding: 8px;
+    color: black;
+    content: ">";
+}
+
 ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
+    color: #0275d8;
+    text-decoration: none;
 }
+
 ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
+    color: #01447e;
+    text-decoration: underline;
 }
 
 .outerBox {
-      margin-left: 10%;
+    margin-left: 10%;
     margin-right: 10%;
     display: flex;
 
-    
+
 }
+
 .outerBox2 {
-      margin-left: 10%;
-    margin-right: 10%; 
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 
@@ -69,7 +75,7 @@ ul.breadcrumb li a:hover {
     margin-bottom: 20px;
 }
 
-.line{
+.line {
     margin-bottom: 40px;
     border-top: 4px solid gold;
     width: 60px;
@@ -85,37 +91,31 @@ ul.breadcrumb li a:hover {
 
 .refLink {
     min-width: 15%;
-    
-   
+
+
 }
 
-.refLink table{
-   border: 
+.refLink table {
+    border:
 }
 
 .refLink ul {
-  padding: 0;
+    padding: 0;
     list-style-type: none;
 }
 
 
 
-
-
-
-
-
-
 video {
     display: block;
-	margin: 0 auto;
+    margin: 0 auto;
 }
 
 #refTable {
     background-color: gainsboro;
     border: 5px solid black;
     margin-left: auto;
-  margin-right: auto;
+    margin-right: auto;
     width: 90%;
     /*text-align: center;*/
 }
@@ -132,7 +132,7 @@ video {
 }
 
 #videoDiv {
-     margin-top: 20px;
+    margin-top: 20px;
 
 }
 
@@ -142,14 +142,69 @@ video {
 }
 
 td {
-  padding: 3px;
+    padding: 3px;
 }
 
 #vendorTrack {
     list-style: none;
 }
 
-.vtSmall li{
+.vtSmall li {
     padding-bottom: 10px;
-      padding-top: 10px;
+    padding-top: 10px;
 }
+
+
+
+
+
+
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #9f9e9e;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid #00548b;
+}
+
+.topnav a.active {
+  border-bottom: 3px solid #00548b;
+
+}
+
+.homebox {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.homebox table{
+   width: 100%
+}
+
+.homebox h2{
+  margin: 0px 0px 10px 0px;
+border-bottom: 2px solid #00548b
+}
+
+.shorten {
+    width: 130px
+}
+
+
