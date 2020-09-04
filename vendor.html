@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+     <!--<script type="text/javascript" src='functions.js'> </script>-->
   
 </head>
 <style>
@@ -41,15 +42,59 @@
     <br>
     
   <div class= "outerBox2">
-   <div class="topnav">
-  <a href="#Home" class="active">Home</a>
-  <a href="#Reqeust">Reqeust</a>
-  <a href="#Message">Message</a>
-<a href="#Evalution">Evalution Matrix</a>
-<a href="#CSDSR Requirements">CSDSR Requirements</a>
-
+   <div id="topnav">
+  <a href="#Home"  data-value=0 class="active a">Home</a>
+  <a href="#Request" data-value=1 class="a"> Requests</a>
+  <a href="#Message" data-value=2 class="a"> Message</a>
+<a href="#Evalution" data-value=3 class="a">Evalution Matrix</a>
+<a href="#CSDSR Requirements" data-value=4 class="a" >CSDSR Requirements</a>
     </div>
-   <div class="homebox">
+      
+
+<script>
+     
+    
+// Add active class to the current button (highlight it)
+var header = document.getElementById("topnav");
+    //console.log(header);
+var btns = header.getElementsByClassName("a");
+   
+    console.log(btns.length);
+for (var i = 0; i < btns.length; i++) {
+    
+  btns[i].addEventListener("click", function(i) {
+      
+      var contentBlock = [
+    "home", 
+    "requests",
+    "message",
+    "EM",
+    "Requirment",
+ ]; 
+      var b =$(this).data("value");
+      for(var j =0; j < contentBlock.length; j++){
+          document.getElementById(contentBlock[j]).style='display:none;';
+      }
+      //console.log(contentBlock[b]);
+      document.getElementById(contentBlock[b]).style='display:block;';
+      
+      
+  var current = document.getElementsByClassName("active");
+      console.log(current[0].name);
+  current[0].className = current[0].className.replace("active", "");
+  this.className += " active";
+document.getElementById('requestsDraft').style='display:none;';
+    
+      
+      
+  });
+    
+    
+}
+</script>
+   
+      <div id="home" > 
+   <div class="contentBox" >
        <div>
        <h2>
            General Information 
@@ -77,7 +122,7 @@
             <b>POC: </b>
         </td> 
              <td>
-            Tommy M. Jasper 
+            Betty S. Cook 
         </td>
             <td align="right"> <a> Edit POC</a></td>
         </tr>
@@ -94,7 +139,7 @@
             <b>POC email: </b>
         </td> 
              <td>
-           TommyMJasper@herolution.com
+           BettySCook@herolution.com
         </td> 
         </tr>
         <tr>
@@ -107,15 +152,5204 @@
         </tr>
        </table>
 </div>
-      <div class="homebox">
+      <div class="contentBox">
       <h2>
-        Machine  
+        Machines On The Evaluated Product List 
     </h2>
-        <p> The current number of machine Herolutions have on the CSDSR's EPLs is 5</p>
+        <h5> The current number of machine that Herolutions have on the CSDSR's EPLs is 5. </h5>
+          
+           <div class="boxlist">
+          <table id="employee">
+          <tr>
+            <th>Type</th> 
+            <th>Name</th>  
+            <th>Model Number</th>
+            <th>Date Added</th>     
+         </tr>
+              <tr>
+              <td>Hard Disk Destruction Devices</td>
+               <td>Hero Crusher</td>
+                <td>HH493-006</td>
+                <td>4/19/2013</td>
+              </tr>
+                 <tr>
+              <td>Magnetic Degaussers</td>
+               <td>Hero Zap</td>
+                <td>HM100</td>
+                <td>4/01/2014</td>
+              </tr>
+                 <tr>
+              <td>Optical Destruction Devices</td>
+               <td>Hero Opitical Shred</td>
+                <td>HO340-002</td>
+                <td>3/30/2013</td>
+              </tr>
+                 <tr>
+              <td>Paper Disintegrators</td>
+               <td>Superhero Paper Shred</td>
+                <td>HD893-346</td>
+                <td>2/27/2012</td>
+              </tr>
+                 <tr>
+              <td> Paper Shredder</td>
+               <td> Hero Paper Shred</td>
+                <td>HS703-206</td>
+                <td>4/19/2013</td>
+              </tr>
+                 <tr>
+              <td>Hard Disk Destruction Devices</td>
+               <td>SuperHero Crusher</td>
+                <td>HD389-226</td>
+                <td>4/19/2014</td>
+              </tr>
+              <tr>
+              <td>Paper Shredder</td>
+               <td>Hero Paper Shred</td>
+                <td>HS323-283</td>
+                <td>3/05/2017</td>
+              </tr>
+          </table>
+      
+      </div>
+      </div>
+      </div>
+      <div id="requests" style="display: none;"> 
+      <div class="contentBox">
+      <h2>
+       Request a Machine for Evaluated Product List 
+    </h2>
+             
+          <table id="button">
+        
+              <tr>
+              <td style="text-align: center;"><h3>New Request</h3></td>
+               <td style="text-align: center;"><h3>Draft</h3></td>
+              </tr>
+               <tr>
+                   <td style="width: 50%; text-align: center"> 
+    <button type="button" name="NwRequest" onclick="Request()" id="NwRequest" class="btn btn-info"> Make a New Request</button>
+        </td>
+               <td >
+                     <div>
+                         
+                         <ul style="list-style: none; text-align: center;">
+  <li><a>Draft 8/28/2019 4:30PM </a></li>
+</ul>
+                   
+                   </div>
+                </td>
+              </tr>
+                 
+          </table>
+     
+          
           
       </div>
       </div>
-    work in progress
+      
+      <script>
+          
+          function Request(){
+               console.log('asld'); document.getElementById('requestsDraft').style='display:block;';
+                document.getElementById('requests').style='display:none;';
+           }
+      </script>
+      
+      <div id="requestsDraft" style="display: none;">   
+       <div class="contentBox">
+      <h2>
+      Request Draft 
+    </h2>
+    <h4 id="demo"></h4>  
+           <script>
+               
+var today = new Date();
+
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+var time = today.getHours() + ":" + today.getMinutes();
+
+var dateTime = date+' '+time;
+               
+document.getElementById("demo").innerHTML = dateTime;
+</script>
+      <div>    
+ <form id="request">
+     <div style="text-align: center;"> <h3><b> Vendor Information</b>  </h3></div>   
+      <label for="CompanyName"> Company Name </label>
+     <input type="text" id="CompanyName" name="CompanyName">
+     
+     <label for="POCName"> POC Name </label>
+      <input type="text" id="POCName" name="POCName">
+        
+     <div style="text-align: center;"> <h4><b>Address</b>  </h4></div>         
+  
+         <table>       
+            
+                    <tr>
+                        <td style="width: 120px;">
+                            <label for="StreetAddress"> Street Address </label>
+                        </td>
+                        <td>
+                            <input type="text" id="StreetAddress" name="StreetAddress">
+                        </td>
+                    </tr>
+             <tr>
+              <td>
+                            <label for="City">City</label>
+                        </td>
+                        <td>
+                            <input type="text" id="City" name="City">
+                        </td>
+             
+             </tr>
+             <tr>
+              <td>
+                            <label for="State">State</label>
+                        </td>
+                        <td>
+                            <input type="text" id="State" name="State">
+                        </td>
+             
+             </tr>
+              <tr>
+              <td>
+                            <label for="Zip">Zip</label>
+                        </td>
+                        <td>
+                            <input type="text" id="Zip" name="Zip">
+                        </td>
+             
+             </tr>
+
+                </table>
+     <br>
+     
+     <label for="Date"> Date </label>
+      <input type="date" id="Date" name="Date">
+     
+     <label for="Email"> Email </label>
+      <input type="text" id="Email" name="Email">
+     
+     <label for="Phone"> Phone </label>
+      <input type="text" id="Phone" name="Phone">
+     
+     <label for="Rebrand"> Is this product a rebrand? </label>
+     <select id="Rebrand" name="Rebrand">
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     
+     <div id="hide1">
+     <label for="ListOfName"> List all other names of the product? </label>
+           <textarea id="ListOfName" name="ListOfName">
+     </textarea>
+     </div>
+     
+     <br>
+      <div style="text-align: center;"> <h3><b>Equipment Description</b>  </h3></div>   
+     
+     <label for="ProductName"> Product Name </label>
+      <input type="text" id="ProductName" name="ProductName">
+     
+     <label for="ModelName/Number">Model Name/Number</label>
+      <input type="text" id="ModelName/Number" name="ModelName/Number">
+     
+     <label for="MarketingDescription">Marketing Description </label>
+      <textarea id="MarketingDescription" name="MarketingDescription">
+     </textarea>
+     
+     <label for="ProductCategory"> Product Category</label>
+     
+      <select id="ProductCategory" name="ProductCategory" onchange="setForm2(this.value)">
+         <option value=0>Pick Device Catagory</option>
+      <option value=1>Hard Disk Destruction Device</option>
+           <option value=2>Magnetic Degaussers</option>
+           <option value=3>Optical Destruction Device</option>
+         <option value=4>Paper Disintegrators</option>
+          <option value=5>Paper Shredders</option>
+          <option value=6>Punched Tape Disintegrators</option>
+          <option value=7>Solid State Disintegrators</option>
+      
+    </select>
+     
+     <script type="text/javascript">
+function setForm2(value) {
+ 
+for (var i = 0; i < 8; i++){
+    console.log(i == value);
+    
+    var block = "Block";
+    block= block +i.toString();
+    //console.log(block);
+    
+    if(i == value){
+         document.getElementById(block).style='display:block;';
+    }
+    else{
+         document.getElementById(block).style='display:none;';
+    }
+}
+   
+}
+
+</script>   
+     
+     <div> 
+         <h3 style="text-align: center;"><b>Pre-Evaluation</b> </h3>
+         <p>The NSA/CSS recommends the vendor perform their own evaluation and, if necessary, set of tests to check compliance. If the equipment does not support the requirements, the equipment should not be submitted for evaluation. </p>
+     </div>
+     
+     
+      
+     <div id= "Boundary"> 
+         <h3 style="text-align: center;"><b>Boundaries</b> </h3>
+         <p>The Vendor must define the boundaries of their machine. There are three boundaries: the destruction boundary, the support boundary and the outside boundary.<br><br>
+             The destruction boundary contains the components that directly destroy or sanitizes the storage devices or protects the operator. As shown in Figure 1 these components are different depending on the type of device. Some example are: blades, punches, degaussers, containment chambers, filters, air handlers or protection shields. These components are critical in meeting the destruction requirements of the classified storage devices. If a component is changed it must be replace with exactly the same component. If a different component is used the evaluation is nullified and the device is not approved to sanitize classified storage devices. The device must go through another evaluation.<br><br>
+             Components in the support boundary are still critical however they don't directly destroy storage devices or protect the operator. These components support components in the destruction boundary so they can do their job. Some examples are: motors, gears, brackets, enclosures, feeders, panels or maintenance indicators. If a component, in the support boundary, is changed it should be replaced with the same component, however another similar component can be used as long as it does not change the operation of components in the destruction boundary. This should be reported to the NSA/CSS within 5 business days.<br><br>
+             Everything else that doesn't fit into the destruction boundary or support boundary are in the outside boundary. These components have nothing to do with the destruction of the storage device or the protection of the operator and can be changed with other components if necessary.<br><br>
+             The Vendor should review the block diagram in Figure 2 and use the lists in Table 1 and Table 2 to describe the product being submitted. It's especially important to describe, in detail, every subsystem from the Destruction Boundary. <br><br>
+</p>
+         
+         <div style=" text-align: center; justify-content: center;">
+         <img src="resources/figure1.png" alt="Figure 1" width="600" height="500">
+         <p><b>Figure 1: Boundaries</b></p>
+         </div>
+         
+         <div> <h5><b>Table 1: Subsystem General Analysis Table</b>  </h5></div>   
+         
+         
+         <table id= "boundaryTable" >       
+            
+                    <tr>
+                        <th >
+                            #
+                        </th>
+                        <th style="width: 120px;">
+                            Subsystem
+                        </th>
+                         <th>
+                            Boundaries
+                        </th>
+                         <th>
+                            Description 
+                        </th>
+                    </tr>
+
+        </table>
+         
+         <script language="javascript">
+              var titles = ["Blades", 
+                  "Input Chute",
+                  "Output Chute",
+                  "Chamber",
+                  "Cabinet",
+                    "Name/Serial/Model Indicator",
+"Mechanical Feeder",
+"Computer/Controllers",
+"Chamber Door",
+"Debris Collector",
+"Filter",
+"HIPPA Filter",
+"Oil Dispenser",
+"Indicators",
+"Switches",
+"Knobs",
+"Motor",
+"Gear",
+"Locks",
+"Sensors",
+"Safety Shields",
+"Beepers/Warning Sounds",
+"Degausser",
+"Monitor",
+"Special Tools",
+"Wheels",
+"Mechanical Levers",
+"Warning Labels or Sticker",
+"Outside Door",
+"Windows",
+"Punch",
+"Fans",
+"Feeder/Conveyer Belt",
+"Ball Bearings",
+"Door Handles",
+ ];       
+         
+   var list           
+             var table = document.getElementById("boundaryTable");
+
+			
+
+             
+             
+             for (i = 0; i < 35; i++){
+                 
+                 var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+                 
+                 var newCell = row.insertCell(0);
+            var newCell1 = row.insertCell(1);
+    var newCell2 = row.insertCell(2);
+    var newCell3 = row.insertCell(3);
+                 
+            newCell.innerHTML = i + 1;
+            newCell1.innerHTML = titles[i];
+             
+           
+                 
+            var element = document.createElement("select");
+            element.options[element.options.length] = new Option('---', 0);
+            element.options[element.options.length] = new Option('Destruction', 1);
+            element.options[element.options.length] = new Option('Support', 3);
+            element.options[element.options.length] = new Option('Not Appliable', 2);
+            element.options[element.options.length] = new Option('Outside', 4);
+            element.name = "Sub" + toString(i);
+            element.id = "Sub" + toString(i);
+            newCell2.appendChild(element);
+                 
+                 
+                 
+            var element2 = document.createElement("input");
+			element2.type = "text";
+            element2.id = "Sub"+toString(i)+"D";
+            newCell3.appendChild(element2);
+        }             
+             
+         </script>
+         <br>
+        
+         <div> <h5><b>Table 2: Subsystem Specific Analysis Table</b>  </h5></div>   
+         
+          <br>
+         
+          <table id= "boundaryTable2" >       
+            
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Subsystem
+                        </th>
+                         <th>
+                            Boundaries
+                        </th>
+                         <th>
+                            Description 
+                        </th>
+                    </tr>
+
+        </table>
+         
+         <script language="javascript">
+                  
+             var table = document.getElementById("boundaryTable2");
+
+			
+
+             
+             
+             for (i = 0; i < 15; i++){
+                 
+                 var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+                 
+                 var newCell = row.insertCell(0);
+            var newCell1 = row.insertCell(1);
+    var newCell2 = row.insertCell(2);
+    var newCell3 = row.insertCell(3);
+                 
+            newCell.innerHTML = i + 1;
+                 
+                 
+             var element3 = document.createElement("input");
+			element3.type = "text";
+            element3.id = "Sub"+toString(i)+"D1";
+            newCell1.appendChild(element3);
+                 
+            var element = document.createElement("select");
+            element.options[element.options.length] = new Option('---', 0);
+            element.options[element.options.length] = new Option('Destruction', 1);
+            element.options[element.options.length] = new Option('Support', 3);
+            element.options[element.options.length] = new Option('Not Appliable', 2);
+            element.options[element.options.length] = new Option('Outside', 4);
+            element.name = "Sub" + toString(i);
+            element.id = "Sub" + toString(i);
+            newCell2.appendChild(element);
+                 
+                 
+                 
+            var element2 = document.createElement("input");
+			element2.type = "text";
+            element2.id = "Sub"+toString(i)+"D2";
+            newCell3.appendChild(element2);
+        }             
+             
+         </script> 
+         
+     </div>
+     <div id="Block0">
+        
+        <div style="text-align: center;"> <h4><b>Pick a type </b>  </h4></div>
+         <p>
+              This is in the Equipment Description Section
+            </p>
+        
+        
+     </div>
+     
+     
+    <div id="Block1" style='display:none;'>
+        
+        <div style="text-align: center;"> <h3><b>Hard Disk Drive Destruction Device</b>  </h3></div>  
+        
+        <div>
+           <h4><b>Destruction</b>  </h4> 
+            <div>
+            <p>
+              A hard disk drive destruction device has the ability to deform the platter(s) of a hard disk drive in 30 seconds or less, by bending, punching, or waffling.  
+            </p>
+            </div>
+            <div>
+             <label for="DestructionM"> Is this Supported: </label>
+     <select id="DestructionM" name="DestructionM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="DestructionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="DestructionD" name="DestructionD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        
+          <div>
+           <h4><b>Operational Time</b>  </h4> 
+            <div>
+            <p>
+              The hard disk drive destruction device must be able to operate continuously for one hour while destroying at least 100 miscellaneous hard disk drives. The disk drive destruction device may jam up to three times per 100 units destroyed however a jam must be cleared within 5 minutes.  For this specification, miscellaneous refers to hard drives made by a variety of  manufacturers. 
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+           <h4><b>Hard Drive Types</b>  </h4> 
+            <div>
+            <p>
+              A hard disk drive destruction device must be able to destroy these hard disk drive:
+                </p>
+                <ul>
+                <li>
+                   3.5" for desktop computers 
+                    </li>
+                    <li>
+                    2.5" for laptops
+                    </li>
+                </ul>
+                <p>
+In order for a hard disk drive destruction device to be approved to destroy a hard disk drives it must be evaluated. 
+
+            </p>
+            </div>
+            <div>
+             <label for="HardDriveTypesM"> Is this Supported: </label>
+     <select id="HardDriveTypesM" name="HardDriveTypesM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="HardDriveTypesD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="HardDriveTypesD" name="HardDriveTypesD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+          <h3 style="text-align: center;"><b>Administrative Requirements</b> </h3>
+        
+         
+        <div>
+           <h4><b>Labels</b>  </h4> 
+            <div>
+            <p>
+             The hard disk drive destruction device must have a label that can be easily viewed and includes:
+                </p>
+                <ul>
+                <li>
+                  Company Name
+                    </li>
+                    <li>
+                    Model
+                    </li>
+                    <li>
+                    Serial Number
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="LabelsM"> Is this Supported: </label>
+     <select id="LabelsM" name="LabelsM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="LabelsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="LabelsD" name="LabelsD" class="inputBlock">
+     </textarea>
+            
+        </div>
+       
+        
+        <div>
+           <h4><b>Feature Claims</b>  </h4> 
+            <div>
+            <p>
+             The hard disk drive destruction device vendor must specify the hard disk drives it will destroy and the requirements it will satisfy. If a hard disk drive is not claimed it will be not be evaluated and the disk drive destruction device will not be approved to destroy that classified hard disk drive.  If a requirement is not supported the disk drive destruction device may not be allowed to go through evaluation. 
+            </p>
+            </div>
+            <div>
+             <label for="FeatureClaimsM"> Is this Supported: </label>
+     <select id="FeatureClaimsM" name="FeatureClaimsM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="FeatureClaimsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="FeatureClaimsD" name="FeatureClaimsD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+        <h4><b>User/Operator Guide</b>  </h4> 
+            <div>
+            <p>
+             The hard disk drive destruction device must have an English version of the user/operator manual. The manual must include the following:
+                </p>
+                <ul>
+                <li>
+                  Accurate description of the hard disk drive destruction device
+                    </li>
+                    <li>
+                    List of hard disk drives it will destroy
+                    </li>
+                    <li>
+                    Accurate summary of each feature and function
+                    </li>
+                      <li>
+                    List of specifications (i.e., power consumption, motor size etc.)
+                    </li>
+                      <li>
+                    Maintenance procedures:
+                    </li>
+                    <ul>
+                    <li>
+                     Changing Filters   
+                    </li>
+                            <li>
+                     Remove a jam  
+                    </li>
+                            <li>
+                    Lubrication  
+                    </li>
+                            <li>
+                    Safety procedures
+                    </li>
+                    </ul>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="UserOperatorGuideM"> Is this Supported: </label>
+     <select id="UserOperatorGuideM" name="UserOperatorGuideM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="UserOperatorGuideD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="UserOperatorGuideD" name="UserOperatorGuideD" class="inputBlock">
+     </textarea>
+            
+        </div>
+         <div style="text-align: center;"> <h3><b>Power Requirements</b>  </h3></div> 
+          
+        <div>
+              
+        <h4><b>Electronic Operation</b>  </h4> 
+            <div>
+            <p>
+              The hard disk drive destruction device will be approved for a power source that is evaluated in testing. Every power source for a hard disk drive destruction device must be individually tested to claim approval.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ElectronicOperationM"> Is this Supported: </label>
+     <select id="ElectronicOperationM" name="ElectronicOperationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="ElectronicOperationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="ElectronicOperationD" name="ElectronicOperationD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+    
+        
+         <div>
+              
+        <h4><b>On/Off Switch</b>  </h4> 
+            <div>
+            <p>
+             The hard disk drive destruction device must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="On/OffSwitchM"> Is this Supported: </label>
+     <select id="On/OffSwitchM" name="On/OffSwitchM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="On/OffSwitchD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="On/OffSwitchD" name="MOn/OffSwitchD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Power Indication</b>  </h4> 
+            <div>
+            <p>
+             The hard disk drive destruction device must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="PowerIndicationM"> Is this Supported: </label>
+     <select id="PowerIndicationM" name="PowerIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="PowerIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="PowerIndicationD" name="PowerIndicationD">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Ready Indication</b>  </h4> 
+            <div>
+            <p>
+            If the hard disk drive destruction device requires a warm up period before operation it must have a ready indication display.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ReadyIndicationM"> Is this Supported: </label>
+     <select id="ReadyIndicationM" name="ReadyIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="ReadyIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="ReadyIndicationD" name="ReadyIndicationD">
+     </textarea>
+            
+                            
+        </div>
+        
+      <div style="text-align: center;"> <h3><b>Safety and Environmental</b>  </h3></div> 
+          
+             <div>
+              
+        <h4><b>Emergency Off </b>  </h4> 
+            <div>
+            <p>
+            A electrical powered hard disk drive destruction device must have an emergency stop mechanism within easy reach of an operator. The emergency procedure must be documented. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="EmergencyOffM"> Is this Supported: </label>
+     <select id="EmergencyOffM" name="EmergencyOffM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="EmergencyOffD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="EmergencyOffD" name="EmergencyOffD">
+     </textarea>
+            
+                            
+        </div>
+         
+           <div>
+              
+        <h4><b>Operator Protection </b>  </h4> 
+            <div>
+            <p>
+            The hard disk drive destruction device  must protect the operator. The operator must not come into contact with any moving parts or projectiles during operation of the hard disk drive destruction device . The hard disk drive destruction device must be in a totally enclosed chamber that will not allow the destruction mechanism to work until a door is closed, totally enclosing the hard disk drive destruction device.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+          <div>
+              
+        <h4><b>Deformed Hard Drive Handling </b>  </h4> 
+            <div>
+            <p>
+            The hard disk drive destruction device must have the ability to easily removed the deformed hard disk drive. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         
+         <div>
+              
+        <h4><b>Debris Collection </b>  </h4> 
+            <div>
+            <p>
+            Any debris that is created during the deformation process must be collected in a bin. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Debris Handling</b>  </h4> 
+            <div>
+            <p>
+            The hard disk drive destruction device must have the ability for the operator to easily removed and empted the debris. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Noise</b>  </h4> 
+            <div>
+            <p>
+            Sound levels for the hard disk drive destruction device  must be less than 85 dBA while operating. This level meets both the National Institute for Occupational Operational and Health (NIOSH) and the Occupational Operation and Health Administration (OSHA) standards of less than 85 DBA and less the 90 dBA respectively.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         <div style="text-align: center;"> <h3><b>Mechanical</b>  </h3></div> 
+           <div>
+              
+        <h4><b>Fit and Finish</b>  </h4> 
+            <div>
+            <p>
+           The hard disk drive destruction device  should have a tight fit with no gaps between panels, loose panels, faulty doors, loose windows or sharp edges that could cause safety or operational issues.
+<br>The hard disk drive destruction device should be a production unit that is complete and all claimed features should be operational. 
+
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+         
+          <div>
+              
+        <h4><b>Vibration</b>  </h4> 
+            <div>
+            <p>
+           The effects of vibration can be severe. Unchecked vibration can accelerate rates of wear (i.e. reduce bearing life) and damage equipment. Vibrating machinery can create noise, cause safety problems and lead to degradation in plant working conditions. 
+<br> The magnetic degausser must not exhibit vibration limits greater then what is shown in Table 3. The measurements will be taken at four random locations around the machine using a digital vibration instrument. 
+
+
+                </p>
+                <div id="soundtable">
+                <table  >
+                    <tr>
+                    <th>Vibration Limits
+                        </th>
+                        <th>Balance Condition <br>Displacement,  <br>mils Peak to Peak <br> at 1x rpm</th>
+                         <th>Overall Velocity  <br>in/sec Peak 10 - <br>1,000 Hz</th>
+                        <th>
+                        Overall  <br>Acceleration, g <br> Peak 0 - 5,000 Hz
+                        </th>
+                    </tr>
+                <tr>
+                    <td>
+                    1,000-2,000 rpm
+                    </td>
+                    <td>2.0</td>
+                    <td>0.2</td>
+                    <td>0.5</td>
+                    </tr>
+                    <tr>
+                     <td>
+                    > 2,000 rpm
+                    </td>
+                         <td>1.0</td>
+                    <td>0.2</td>
+                    <td>1.0</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+       <div>    
+        <h4><b>Heat Generation</b>  </h4> 
+            <div>
+            <p>
+            A heat signature will be taken for electrically power machines using a heat signature camera on each side of the device. The signature should show no high temperature activity (red areas) on the hard disk drive destruction device that could be dangerous to the environment or injure an operator.
+
+                </p>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+           <div>    
+        <h4><b>Calibration or Maintenance</b>  </h4> 
+            <div>
+            <p>
+            Any machine will require calibration and maintenance during its lifetime. If the hard disk drive destruction device requires calibration or maintenance by the operator if must be safe and reasonable easy to accomplished. The following are some specifics: 
+
+                </p>
+                
+                <ul>
+                <li>
+                    Unit Jamming must be cleared within 5 minutes.
+                    </li>
+                    <li>
+                    Hard disk drive destruction device  must be able to reset within 10 minute after a thermo shutdown. 
+                    </li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+     </div>
+   
+     
+     <div id= "Block2" style='display:none;'>
+     
+      
+        <div style="text-align: center;"> <h3><b>*Magnetic Degausser*</b>  </h3></div>  
+        
+        <div>
+           <h4><b>Magnetic Degausser Passes</b>  </h4> 
+            <div>
+            <p>
+              Magnetic degaussers requiring multiple passes, adapter or disassembly of magnetic storage devices must be identified.
+            </p>
+            </div>
+            <div>
+             <label for="DestructionM"> Is this Supported: </label>
+     <select id="DestructionM" name="DestructionM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="DestructionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="DestructionD" name="DestructionD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        
+          <div>
+           <h4><b>Magnetic Degausser Permanent Sanitization</b>  </h4> 
+            <div>
+            <p>
+               A magnetic degausser must permanently destroy data from the medium.
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+        
+         <div>
+           <h4><b>Magnetic Degausser Verify Sanitization</b>  </h4> 
+            <div>
+            <p>
+            Electro Pulse degausser must have a built-in verification, or; Permanent magnet degausser must use DSI Field CheckR to verify that the magnet assemble is producing sufficient field strength.
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+         
+         
+         <div>
+           <h4><b>Magnetic Degausser Verify Sanitization</b>  </h4> 
+            <div>
+            <p>
+            Electro Pulse degausser must have a built-in verification, or; Permanent magnet degausser must use DSI Field CheckR to verify that the magnet assemble is producing sufficient field strength.
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+         
+         
+         <div>
+           <h4><b>Magnetic Degausser Types</b>  </h4> 
+            <div>
+            <p>
+         Magnetic degausser must specify the types of magnetic storage device it accommodates. 
+
+
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+         
+            <div>
+           <h4><b>Magnetic Degausser Eraser Specification</b>  </h4> 
+            <div>
+            <p>
+         Magnetic degausser must erase specified magnetic storage device to the noise floor of the magnetic storage device.
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+         
+        <div>
+           <h4><b>Operational Time</b>  </h4> 
+            <div>
+            <p>
+             The magnetic degausser must be able to operate continuously for one hour while destroying at least 100 miscellaneous magnetic storage devices. The magnetic degausser may jam up to three times per 100 units destroyed however a jam must be cleared within 5 minutes.
+                </p>
+               
+        
+            </div>
+            <div>
+             <label for="HardDriveTypesM"> Is this Supported: </label>
+     <select id="HardDriveTypesM" name="HardDriveTypesM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="HardDriveTypesD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="HardDriveTypesD" name="HardDriveTypesD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+          <h3 style="text-align: center;"><b>Administrative Requirements</b> </h3>
+        
+         
+        <div>
+           <h4><b>Labels</b>  </h4> 
+            <div>
+            <p>
+             The magnetic degausser must have a label that can be easily viewed and includes:
+                </p>
+                <ul>
+                <li>
+                  Company Name
+                    </li>
+                    <li>
+                    Model
+                    </li>
+                    <li>
+                    Serial Number
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="LabelsM"> Is this Supported: </label>
+     <select id="LabelsM" name="LabelsM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="LabelsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="LabelsD" name="LabelsD" class="inputBlock">
+     </textarea>
+            
+        </div>
+       
+        
+        <div>
+           <h4><b>Feature Claims</b>  </h4> 
+            <div>
+            <p>
+             The magnetic degausser vendor must specify the hard disk drives it will destroy and the requirements it will satisfy. If a hard disk drive is not claimed it will be not be evaluated and the disk drive destruction device will not be approved to destroy that classified hard disk drive.  If a requirement is not supported the disk drive destruction device may not be allowed to go through evaluation. 
+            </p>
+            </div>
+            <div>
+             <label for="FeatureClaimsM"> Is this Supported: </label>
+     <select id="FeatureClaimsM" name="FeatureClaimsM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="FeatureClaimsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="FeatureClaimsD" name="FeatureClaimsD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+        <h4><b>User/Operator Guide</b>  </h4> 
+            <div>
+            <p>
+             The magnetic degausser must have an English version of the user/operator manual. The manual must include the following:
+                </p>
+                <ul>
+                <li>
+                  Accurate description of the magnetic degausser
+                    </li>
+                    <li>
+                    List of Magnetic storage devices it will destroy
+                    </li>
+                    <li>
+                    Accurate summary of each feature and function
+                    </li>
+                      <li>
+                    List of specifications (i.e., power consumption, motor size etc.)
+                    </li>
+                      <li>
+                    Maintenance procedures:
+                    </li>
+                    <ul>
+                    <li>
+                     Changing Filters   
+                    </li>
+                            <li>
+                     Remove a jam  
+                    </li>
+                            <li>
+                    Lubrication  
+                    </li>
+                            <li>
+                    Safety procedures
+                    </li>
+                    </ul>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="UserOperatorGuideM"> Is this Supported: </label>
+     <select id="UserOperatorGuideM" name="UserOperatorGuideM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="UserOperatorGuideD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="UserOperatorGuideD" name="UserOperatorGuideD" class="inputBlock">
+     </textarea>
+            
+        </div>
+         <div style="text-align: center;"> <h3><b>Power Requirements</b>  </h3></div> 
+          
+        <div>
+              
+        <h4><b>Electrical</b>  </h4> 
+            <div>
+            <p>
+              The magnetic degausser will be approved for a power source that is evaluated in testing. Every power source for a magnetic degausser must be individually tested to claim approval.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ElectronicOperationM"> Is this Supported: </label>
+     <select id="ElectronicOperationM" name="ElectronicOperationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="ElectronicOperationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="ElectronicOperationD" name="ElectronicOperationD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+        
+        
+         <div>
+              
+        <h4><b>On/Off Switch</b>  </h4> 
+            <div>
+            <p>
+             The magnetic degausser must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="On/OffSwitchM"> Is this Supported: </label>
+     <select id="On/OffSwitchM" name="On/OffSwitchM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="On/OffSwitchD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="On/OffSwitchD" name="MOn/OffSwitchD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Power Indication</b>  </h4> 
+            <div>
+            <p>
+             The magnetic degausser must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="PowerIndicationM"> Is this Supported: </label>
+     <select id="PowerIndicationM" name="PowerIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="PowerIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="PowerIndicationD" name="PowerIndicationD">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Ready Indication</b>  </h4> 
+            <div>
+            <p>
+            If the magnetic degausser requires a warm up period before operation it must have a ready indication display.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ReadyIndicationM"> Is this Supported: </label>
+     <select id="ReadyIndicationM" name="ReadyIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="ReadyIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="ReadyIndicationD" name="ReadyIndicationD">
+     </textarea>
+            
+                            
+        </div>
+        
+      <div style="text-align: center;"> <h3><b>Safety and Environmental</b>  </h3></div> 
+          
+             <div>
+              
+        <h4><b>Emergency Off </b>  </h4> 
+            <div>
+            <p>
+            A electrical powered magnetic degausser must have an emergency stop mechanism within easy reach of an operator. The emergency procedure must be documented. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="EmergencyOffM"> Is this Supported: </label>
+     <select id="EmergencyOffM" name="EmergencyOffM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="EmergencyOffD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="EmergencyOffD" name="EmergencyOffD">
+     </textarea>
+            
+                            
+        </div>
+         
+           <div>
+              
+        <h4><b>Operator Protection </b>  </h4> 
+            <div>
+            <p>
+            The magnetic degausser  must protect the operator. The operator must not come into contact with any moving parts or projectiles during operation of the magnetic degausser . The magnetic degausser must be in a totally enclosed chamber that will not allow the destruction mechanism to work until a door is closed, totally enclosing the magnetic degausser.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+          <div>
+              
+        <h4><b>Deformed Hard Drive Handling </b>  </h4> 
+            <div>
+            <p>
+            The magnetic degausser must have the ability to easily removed the deformed hard disk drive. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         
+         <div>
+              
+        <h4><b>Debris Collection </b>  </h4> 
+            <div>
+            <p>
+            Any debris that is created during the deformation process must be collected in a bin. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Debris Handling</b>  </h4> 
+            <div>
+            <p>
+            The magnetic degausser must have the ability for the operator to easily removed and empted the debris. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Noise</b>  </h4> 
+            <div>
+            <p>
+            Sound levels for the magnetic degausser  must be less than 85 dBA while operating. This level meets both the National Institute for Occupational Operational and Health (NIOSH) and the Occupational Operation and Health Administration (OSHA) standards of less than 85 DBA and less the 90 dBA respectively.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         <div style="text-align: center;"> <h3><b>Mechanical</b>  </h3></div> 
+           <div>
+              
+        <h4><b>Fit and Finish</b>  </h4> 
+            <div>
+            <p>
+           The magnetic degausser  should have a tight fit with no gaps between panels, loose panels, faulty doors, loose windows or sharp edges that could cause safety or operational issues.
+<br>The magnetic degausser should be a production unit that is complete and all claimed features should be operational. 
+
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+         
+          <div>
+              
+        <h4><b>Vibration</b>  </h4> 
+            <div>
+            <p>
+           The effects of vibration can be severe. Unchecked vibration can accelerate rates of wear (i.e. reduce bearing life) and damage equipment. Vibrating machinery can create noise, cause safety problems and lead to degradation in plant working conditions. 
+<br> The magnetic degausser must not exhibit vibration limits greater then what is shown in Table 3. The measurements will be taken at four random locations around the machine using a digital vibration instrument. 
+
+
+                </p>
+                <div id="soundtable">
+                <table  >
+                    <tr>
+                    <th>Vibration Limits
+                        </th>
+                        <th>Balance Condition <br>Displacement,  <br>mils Peak to Peak <br> at 1x rpm</th>
+                         <th>Overall Velocity  <br>in/sec Peak 10 - <br>1,000 Hz</th>
+                        <th>
+                        Overall  <br>Acceleration, g <br> Peak 0 - 5,000 Hz
+                        </th>
+                    </tr>
+                <tr>
+                    <td>
+                    1,000-2,000 rpm
+                    </td>
+                    <td>2.0</td>
+                    <td>0.2</td>
+                    <td>0.5</td>
+                    </tr>
+                    <tr>
+                     <td>
+                    > 2,000 rpm
+                    </td>
+                         <td>1.0</td>
+                    <td>0.2</td>
+                    <td>1.0</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+       <div>    
+        <h4><b>Heat Generation</b>  </h4> 
+            <div>
+            <p>
+            A heat signature will be taken for electrically power machines using a heat signature camera on each side of the device. The signature should show no high temperature activity (red areas) on the magnetic degausser that could be dangerous to the environment or injure an operator.
+
+                </p>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+           <div>    
+        <h4><b>Calibration or Maintenance</b>  </h4> 
+            <div>
+            <p>
+            Any machine will require calibration and maintenance during its lifetime. If the magnetic degausser requires calibration or maintenance by the operator if must be safe and reasonable easy to accomplished. The following are some specifics: 
+
+                </p>
+                
+                <ul>
+                <li>
+                    Unit Jamming must be cleared within 5 minutes.
+                    </li>
+                    <li>
+                    magnetic degausser  must be able to reset within 10 minute after a thermo shutdown. 
+                    </li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+
+     </div>
+     
+     <div id="Block3" style='display:none;'>
+        
+        <div style="text-align: center;"> <h3><b>Optical Destruction Devices</b>  </h3></div>  
+        
+        <div>
+           <h4><b>Destruction</b>  </h4> 
+            <div>
+            <p>
+              The optical destruction device must have the ability to sanitize optical storage media (through grinding, milling, cutting, disintegrating, or knurling) for: 
+                
+            </p>
+                <ul>
+                <li>
+                CDs to a maximum edge size of 5 mm or less 
+                    </li>
+                    <li>
+                    DVDs and BDs to a maximum edge size of 2 mm or less
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="DestructionM"> Is this Supported: </label>
+     <select id="DestructionM" name="DestructionM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="DestructionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="DestructionD" name="DestructionD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        
+          <div>
+           <h4><b>Operational Time</b>  </h4> 
+            <div>
+            <p>
+              The optical destruction device must be able to operate continuously for 1 hour while destroying at least 100 miscellaneous optical storage devices. The optical storage device may jam up to 3 times per 100 units destroyed however a jam must be cleared within 5 minutes.  
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+           <h4><b>Optical Device Types</b>  </h4> 
+            <div>
+            <p>
+              An optical destruction device must be able to destroy all or some of these optical storage media:
+                </p>
+                <ul>
+                <li>
+                   CD
+                    </li>
+                    <li>
+                     DVD
+                    </li>
+                    <li>
+                    Blu-ray Disk (BD)
+                    </li>
+                </ul>
+                <p>
+Optical destruction devices must be evaluated for each destroyable media type claimed by the manufacturer. Failure to meet the NSA/CSS requirements for any devices claimed by the manufacturer will result in a disapproval of the device.
+            </p>
+            </div>
+            <div>
+             <label for="HardDriveTypesM"> Is this Supported: </label>
+     <select id="HardDriveTypesM" name="HardDriveTypesM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="HardDriveTypesD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="HardDriveTypesD" name="HardDriveTypesD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+          <h3 style="text-align: center;"><b>Administrative Requirements</b> </h3>
+        
+         
+        <div>
+           <h4><b>Labels</b>  </h4> 
+            <div>
+            <p>
+             The Optical destruction devices must have a label that can be easily viewed and includes:
+                </p>
+                <ul>
+                <li>
+                  Company Name
+                    </li>
+                    <li>
+                    Model
+                    </li>
+                    <li>
+                    Serial Number
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="LabelsM"> Is this Supported: </label>
+     <select id="LabelsM" name="LabelsM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="LabelsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="LabelsD" name="LabelsD" class="inputBlock">
+     </textarea>
+            
+        </div>
+       
+        
+        <div>
+           <h4><b>Feature Claims</b>  </h4> 
+            <div>
+            <p>
+             The Optical destruction devices vendor must specify the hard disk drives it will destroy and the requirements it will satisfy. If a hard disk drive is not claimed it will be not be evaluated and the disk drive destruction device will not be approved to destroy that classified hard disk drive.  If a requirement is not supported the disk drive destruction device may not be allowed to go through evaluation. 
+            </p>
+            </div>
+            <div>
+             <label for="FeatureClaimsM"> Is this Supported: </label>
+     <select id="FeatureClaimsM" name="FeatureClaimsM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="FeatureClaimsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="FeatureClaimsD" name="FeatureClaimsD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+        <h4><b>User/Operator Guide</b>  </h4> 
+            <div>
+            <p>
+             The Optical destruction devices must have an English version of the user/operator manual. The manual must include the following:
+                </p>
+                <ul>
+                <li>
+                  Accurate description of the Optical destruction devices
+                    </li>
+                    <li>
+                    List of hard disk drives it will destroy
+                    </li>
+                    <li>
+                    Accurate summary of each feature and function
+                    </li>
+                      <li>
+                    List of specifications (i.e., power consumption, motor size etc.)
+                    </li>
+                      <li>
+                    Maintenance procedures:
+                    </li>
+                    <ul>
+                    <li>
+                     Changing Filters   
+                    </li>
+                            <li>
+                     Remove a jam  
+                    </li>
+                            <li>
+                    Lubrication  
+                    </li>
+                            <li>
+                    Safety procedures
+                    </li>
+                    </ul>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="UserOperatorGuideM"> Is this Supported: </label>
+     <select id="UserOperatorGuideM" name="UserOperatorGuideM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="UserOperatorGuideD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="UserOperatorGuideD" name="UserOperatorGuideD" class="inputBlock">
+     </textarea>
+            
+        </div>
+         <div style="text-align: center;"> <h3><b>Power Requirements</b>  </h3></div> 
+          
+        <div>
+              
+        <h4><b>Electronic Operation</b>  </h4> 
+            <div>
+            <p>
+              The Optical destruction devices will be approved for a power source that is evaluated in testing. Every power source for a Optical destruction devices must be individually tested to claim approval.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ElectronicOperationM"> Is this Supported: </label>
+     <select id="ElectronicOperationM" name="ElectronicOperationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="ElectronicOperationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="ElectronicOperationD" name="ElectronicOperationD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+      
+        
+        
+         <div>
+              
+        <h4><b>On/Off Switch</b>  </h4> 
+            <div>
+            <p>
+             The Optical destruction devices must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="On/OffSwitchM"> Is this Supported: </label>
+     <select id="On/OffSwitchM" name="On/OffSwitchM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="On/OffSwitchD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="On/OffSwitchD" name="MOn/OffSwitchD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Power Indication</b>  </h4> 
+            <div>
+            <p>
+             The Optical destruction devices must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="PowerIndicationM"> Is this Supported: </label>
+     <select id="PowerIndicationM" name="PowerIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="PowerIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="PowerIndicationD" name="PowerIndicationD">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Ready Indication</b>  </h4> 
+            <div>
+            <p>
+            If the Optical destruction devices requires a warm up period before operation it must have a ready indication display.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ReadyIndicationM"> Is this Supported: </label>
+     <select id="ReadyIndicationM" name="ReadyIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="ReadyIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="ReadyIndicationD" name="ReadyIndicationD">
+     </textarea>
+            
+                            
+        </div>
+        
+      <div style="text-align: center;"> <h3><b>Safety and Environmental</b>  </h3></div> 
+          
+             <div>
+              
+        <h4><b>Emergency Off </b>  </h4> 
+            <div>
+            <p>
+            The opitcal destruction  must have an emergency stop mechanism within easy reach of an operator. The emergency procedure must be documented. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="EmergencyOffM"> Is this Supported: </label>
+     <select id="EmergencyOffM" name="EmergencyOffM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="EmergencyOffD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="EmergencyOffD" name="EmergencyOffD">
+     </textarea>
+            
+                            
+        </div>
+         
+           <div>
+              
+        <h4><b>Operator Protection </b>  </h4> 
+            <div>
+            <p>
+            The optical destruction device  must protect the operator. The operator must not come into contact with any moving parts or projectiles during operation of the optical destruction device . The optical destruction device must be in a totally enclosed chamber that will not allow the destruction mechanism to work until a door is closed, totally enclosing the optical destruction device.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+          <div>
+              
+        <h4><b>Reverse </b>  </h4> 
+            <div>
+            <p>
+A punch tape disintegrator that feeds the punch tape into a input chute must either automatically or manually allow the reverse operation.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         
+         <div>
+              
+        <h4><b>Debris Collection </b>  </h4> 
+            <div>
+            <p>
+            Any debris that is created during the deformation process must be collected in a bin. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         <div>
+              
+        <h4><b>Debris Full </b>  </h4> 
+            <div>
+            <p>
+           The optical destruction device must have a debris full indicator and must automatically shut off. This must be a actual measurement of the level of debris that is the bin and not based on time or other criteria.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+          <div>
+              
+        <h4><b>Debris Handling</b>  </h4> 
+            <div>
+            <p>
+            The optical destruction device must have the ability for the operator to easily removed and empted the debris. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Noise</b>  </h4> 
+            <div>
+            <p>
+            Sound levels for the optical device  must be less than 85 dBA while operating. This level meets both the National Institute for Occupational Operational and Health (NIOSH) and the Occupational Operation and Health Administration (OSHA) standards of less than 85 DBA and less the 90 dBA respectively.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         <div style="text-align: center;"> <h3><b>Mechanical</b>  </h3></div> 
+           <div>
+              
+        <h4><b>Fit and Finish</b>  </h4> 
+            <div>
+            <p>
+           The Solid State Disintegrator  should have a tight fit with no gaps between panels, loose panels, faulty doors, loose windows or sharp edges that could cause safety or operational issues.
+<br>The optical  destruction device should be a production unit that is complete and all claimed features should be operational. 
+
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+         
+          <div>
+              
+        <h4><b>Vibration</b>  </h4> 
+            <div>
+            <p>
+           The effects of vibration can be severe. Unchecked vibration can accelerate rates of wear (i.e. reduce bearing life) and damage equipment. Vibrating machinery can create noise, cause safety problems and lead to degradation in plant working conditions. 
+<br> The magnetic degausser must not exhibit vibration limits greater then what is shown in Table 3. The measurements will be taken at four random locations around the machine using a digital vibration instrument. 
+
+
+                </p>
+                <div id="soundtable">
+                <table  >
+                    <tr>
+                    <th>Vibration Limits
+                        </th>
+                        <th>Balance Condition <br>Displacement,  <br>mils Peak to Peak <br> at 1x rpm</th>
+                         <th>Overall Velocity  <br>in/sec Peak 10 - <br>1,000 Hz</th>
+                        <th>
+                        Overall  <br>Acceleration, g <br> Peak 0 - 5,000 Hz
+                        </th>
+                    </tr>
+                <tr>
+                    <td>
+                    1,000-2,000 rpm
+                    </td>
+                    <td>2.0</td>
+                    <td>0.2</td>
+                    <td>0.5</td>
+                    </tr>
+                    <tr>
+                     <td>
+                    > 2,000 rpm
+                    </td>
+                         <td>1.0</td>
+                    <td>0.2</td>
+                    <td>1.0</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+       <div>    
+        <h4><b>Heat Generation</b>  </h4> 
+            <div>
+            <p>
+            A heat signature will be taken for electrically power machines using a heat signature camera on each side of the device. The signature should show no high temperature activity (red areas) on the optical destruction device that could be dangerous to the environment or injure an operator.
+
+                </p>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+           <div>    
+        <h4><b>Calibration or Maintenance</b>  </h4> 
+            <div>
+            <p>
+            Any machine will require calibration and maintenance during its lifetime. If the hard disk drive destruction device requires calibration or maintenance by the operator if must be safe and reasonable easy to accomplished. The following are some specifics: 
+
+                </p>
+                
+                <ul>
+                <li>
+                    Unit Jamming must be cleared within 5 minutes.
+                    </li>
+                    <li> 
+                    Filters must be change within 5 minutes without using special tools.
+                    </li>
+                    <li>
+                    must be able to reset within 10 minute after a thermo shutdown. 
+                    </li>
+                    <li> 
+                   Lubricant should be able to be applied, refilled or replaced within 5 minutes.
+                    </li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+     </div>
+     
+    <div id="Block4" style='display:none;'>
+        
+        <div style="text-align: center;"> <h3><b>Paper Disintegrator</b>  </h3></div>  
+        
+        <div>
+           <h4><b>Disintegrate</b>  </h4> 
+            <div>
+            <p>
+             The paper disintegrator must reduce paper, punched tape or CD to an edge size of 3 millimeter by 5 millimeter, or less.
+            </p>
+                <ul>
+                <li>
+                CDs to a maximum edge size of 5 mm or less 
+                    </li>
+                    <li>
+                    DVDs and BDs to a maximum edge size of 2 mm or less
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="DestructionM"> Is this Supported: </label>
+     <select id="DestructionM" name="DestructionM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="DestructionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="DestructionD" name="DestructionD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        
+          <div>
+           <h4><b>Paper</b>  </h4> 
+            <div>
+            <p>
+              A paper disintegrator must define the maximum paper thickness, weight and size it will disintegrate.
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+        
+       
+        
+          <h3 style="text-align: center;"><b>Administrative Requirements</b> </h3>
+        
+         
+        <div>
+           <h4><b>Labels</b>  </h4> 
+            <div>
+            <p>
+             The paper disintegrators must have a label that can be easily viewed and includes:
+                </p>
+                <ul>
+                <li>
+                  Company Name
+                    </li>
+                    <li>
+                    Model
+                    </li>
+                    <li>
+                    Serial Number
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="LabelsM"> Is this Supported: </label>
+     <select id="LabelsM" name="LabelsM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="LabelsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="LabelsD" name="LabelsD" class="inputBlock">
+     </textarea>
+            
+        </div>
+       
+        
+        <div>
+           <h4><b>Feature Claims</b>  </h4> 
+            <div>
+            <p>
+             The paper disintegrator vendor must specify the paper, punch (key) tape or CDs it will destroy and the requirements it will satisfy. If a paper, punch (key) tape or CD is not claimed it will be not be evaluated and will not be approved to destroy that classified paper, punch (key) tape or CD.  If a requirement is not supported the paper disintegrator may not be allowed to go through evaluation.
+            </p>
+            </div>
+            <div>
+             <label for="FeatureClaimsM"> Is this Supported: </label>
+     <select id="FeatureClaimsM" name="FeatureClaimsM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="FeatureClaimsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="FeatureClaimsD" name="FeatureClaimsD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+        <h4><b>User/Operator Guide</b>  </h4> 
+            <div>
+            <p>
+             The paper disintegrators must have an English version of the user/operator manual. The manual must include the following:
+                </p>
+                <ul>
+                <li>
+                  Accurate description of the paper disintegrators
+                    </li>
+                    <li>
+                     Definition of paper, punch (key) tape or CDs it will disintegrate
+                    </li>
+                    <li>
+                    List of hard disk drives it will destroy
+                    </li>
+                    <li>
+                    Accurate summary of each feature and function
+                    </li>
+                      <li>
+                    List of specifications (i.e., power consumption, motor size etc.)
+                    </li>
+                      <li>
+                    Maintenance procedures:
+                    </li>
+                    <ul>
+                    <li>
+                     Changing Filters   
+                    </li>
+                            <li>
+                     Remove a jam  
+                    </li>
+                            <li>
+                    Lubrication  
+                    </li>
+                            <li>
+                    Safety procedures
+                    </li>
+                    </ul>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="UserOperatorGuideM"> Is this Supported: </label>
+     <select id="UserOperatorGuideM" name="UserOperatorGuideM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="UserOperatorGuideD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="UserOperatorGuideD" name="UserOperatorGuideD" class="inputBlock">
+     </textarea>
+            
+        </div>
+         <div style="text-align: center;"> <h3><b>Power Requirements</b>  </h3></div> 
+          
+        <div>
+              
+        <h4><b>Electronic Operation</b>  </h4> 
+            <div>
+            <p>
+              The paper disintegrators will be approved for a power source that is evaluated in testing. Every power source for a paper disintegrators must be individually tested to claim approval.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ElectronicOperationM"> Is this Supported: </label>
+     <select id="ElectronicOperationM" name="ElectronicOperationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="ElectronicOperationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="ElectronicOperationD" name="ElectronicOperationD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+      
+        
+        
+         <div>
+              
+        <h4><b>On/Off Switch</b>  </h4> 
+            <div>
+            <p>
+             The paper disintegrators must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="On/OffSwitchM"> Is this Supported: </label>
+     <select id="On/OffSwitchM" name="On/OffSwitchM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="On/OffSwitchD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="On/OffSwitchD" name="MOn/OffSwitchD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Power Indication</b>  </h4> 
+            <div>
+            <p>
+             The paper disintegrators must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="PowerIndicationM"> Is this Supported: </label>
+     <select id="PowerIndicationM" name="PowerIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="PowerIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="PowerIndicationD" name="PowerIndicationD">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Ready Indication</b>  </h4> 
+            <div>
+            <p>
+            If the paper disintegrators requires a warm up period before operation it must have a ready indication display.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ReadyIndicationM"> Is this Supported: </label>
+     <select id="ReadyIndicationM" name="ReadyIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="ReadyIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="ReadyIndicationD" name="ReadyIndicationD">
+     </textarea>
+            
+                            
+        </div>
+        
+      <div style="text-align: center;"> <h3><b>Safety and Environmental</b>  </h3></div> 
+          
+             <div>
+              
+        <h4><b>Emergency Off </b>  </h4> 
+            <div>
+            <p>
+            The opitcal destruction  must have an emergency stop mechanism within easy reach of an operator. The emergency procedure must be documented. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="EmergencyOffM"> Is this Supported: </label>
+     <select id="EmergencyOffM" name="EmergencyOffM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="EmergencyOffD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="EmergencyOffD" name="EmergencyOffD">
+     </textarea>
+            
+                            
+        </div>
+         
+           <div>
+              
+        <h4><b>Operator Protection </b>  </h4> 
+            <div>
+            <p>
+            The paper disintegrator  must protect the operator. The operator must not come into contact with any moving parts or projectiles during operation of the paper disintegrator . The paper disintegrator must be in a totally enclosed chamber that will not allow the destruction mechanism to work until a door is closed, totally enclosing the paper disintegrator.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+          <div>
+              
+        <h4><b>Reverse </b>  </h4> 
+            <div>
+            <p>
+A paper disintegrator that feeds the punch tape into a input chute must either automatically or manually allow the reverse operation.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         
+         <div>
+              
+        <h4><b>Debris Collection </b>  </h4> 
+            <div>
+            <p>
+            Any debris that is created during the deformation process must be collected in a bin. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         <div>
+              
+        <h4><b>Debris Full </b>  </h4> 
+            <div>
+            <p>
+           The paper disintegrator must have a debris full indicator and must automatically shut off. This must be a actual measurement of the level of debris that is the bin and not based on time or other criteria.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+          <div>
+              
+        <h4><b>Debris Handling</b>  </h4> 
+            <div>
+            <p>
+            The paper disintegrator must have the ability for the operator to easily removed and empted the debris. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Noise</b>  </h4> 
+            <div>
+            <p>
+            Sound levels for the optical device  must be less than 85 dBA while operating. This level meets both the National Institute for Occupational Operational and Health (NIOSH) and the Occupational Operation and Health Administration (OSHA) standards of less than 85 DBA and less the 90 dBA respectively.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         <div style="text-align: center;"> <h3><b>Mechanical</b>  </h3></div> 
+           <div>
+              
+        <h4><b>Fit and Finish</b>  </h4> 
+            <div>
+            <p>
+           The optical  destruction device  should have a tight fit with no gaps between panels, loose panels, faulty doors, loose windows or sharp edges that could cause safety or operational issues.
+<br>The optical  destruction device should be a production unit that is complete and all claimed features should be operational. 
+
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+         
+          <div>
+              
+        <h4><b>Vibration</b>  </h4> 
+            <div>
+            <p>
+           The effects of vibration can be severe. Unchecked vibration can accelerate rates of wear (i.e. reduce bearing life) and damage equipment. Vibrating machinery can create noise, cause safety problems and lead to degradation in plant working conditions. 
+<br> The magnetic degausser must not exhibit vibration limits greater then what is shown in Table 3. The measurements will be taken at four random locations around the machine using a digital vibration instrument. 
+
+
+                </p>
+                <div id="soundtable">
+                <table  >
+                    <tr>
+                    <th>Vibration Limits
+                        </th>
+                        <th>Balance Condition <br>Displacement,  <br>mils Peak to Peak <br> at 1x rpm</th>
+                         <th>Overall Velocity  <br>in/sec Peak 10 - <br>1,000 Hz</th>
+                        <th>
+                        Overall  <br>Acceleration, g <br> Peak 0 - 5,000 Hz
+                        </th>
+                    </tr>
+                <tr>
+                    <td>
+                    1,000-2,000 rpm
+                    </td>
+                    <td>2.0</td>
+                    <td>0.2</td>
+                    <td>0.5</td>
+                    </tr>
+                    <tr>
+                     <td>
+                    > 2,000 rpm
+                    </td>
+                         <td>1.0</td>
+                    <td>0.2</td>
+                    <td>1.0</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+       <div>    
+        <h4><b>Heat Generation</b>  </h4> 
+            <div>
+            <p>
+            A heat signature will be taken for electrically power machines using a heat signature camera on each side of the device. The signature should show no high temperature activity (red areas) on the paper disintegrator that could be dangerous to the environment or injure an operator.
+
+                </p>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+           <div>    
+        <h4><b>Calibration or Maintenance</b>  </h4> 
+            <div>
+            <p>
+            Any machine will require calibration and maintenance during its lifetime. If the hard disk drive destruction device requires calibration or maintenance by the operator if must be safe and reasonable easy to accomplished. The following are some specifics: 
+
+                </p>
+                
+                <ul>
+                <li>
+                    Unit Jamming must be cleared within 5 minutes.
+                    </li>
+                    <li> 
+                    Filters must be change within 5 minutes without using special tools.
+                    </li>
+                    <li>
+                    must be able to reset within 10 minute after a thermo shutdown. 
+                    </li>
+                    <li> 
+                   Lubricant should be able to be applied, refilled or replaced within 5 minutes.
+                    </li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+     </div>   
+          
+     
+     <div id="Block5" style='display:none;'>
+        
+        <div style="text-align: center;"> <h3><b>Paper Shredders</b>  </h3></div>  
+        
+        <div>
+           <h4><b>Shredding</b>  </h4> 
+            <div>
+            <p>
+             The device must shred paper or CDs to an edge size of 1 millimeter by 5 millimeter, or less.
+            </p>
+                
+            </div>
+            <div>
+             <label for="DestructionM"> Is this Supported: </label>
+     <select id="DestructionM" name="DestructionM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="DestructionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="DestructionD" name="DestructionD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        
+          <div>
+           <h4><b>Operational Time</b>  </h4> 
+            <div>
+            <p>
+              The evaluation will includes the timed destruction of conventional office copy paper (letter size, 20-lb weight, uncoated) or CDs for a period of 1 hour. The vendor must define the volume classification of the paper shredder:
+            </p>
+                <ul>
+                <li>Low volume = 0-4 reams/hour</li>
+                    <li>Medium volume = 5-9 reams/hour</li>
+                    <li> High volume = 10+ reams/hou</li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+         
+        <div>
+           <h4><b>Storage Media</b>  </h4> 
+            <div>
+            <p>
+              A Paper Shredder must define the maximum thickness, weight and size of the paper it will shred. 
+
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+       
+        
+          <h3 style="text-align: center;"><b>Administrative Requirements</b> </h3>
+        
+         
+        <div>
+           <h4><b>Labels</b>  </h4> 
+            <div>
+            <p>
+             The paper shredders must have a label that can be easily viewed and includes:
+                </p>
+                <ul>
+                <li>
+                  Company Name
+                    </li>
+                    <li>
+                    Model
+                    </li>
+                    <li>
+                    Serial Number
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="LabelsM"> Is this Supported: </label>
+     <select id="LabelsM" name="LabelsM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="LabelsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="LabelsD" name="LabelsD" class="inputBlock">
+     </textarea>
+            
+        </div>
+       
+        
+        <div>
+           <h4><b>Feature Claims</b>  </h4> 
+            <div>
+            <p>
+             The paper shredder vendor must specify the paper, punch (key) tape or CDs it will destroy and the requirements it will satisfy. If a paper, punch (key) tape or CD is not claimed it will be not be evaluated and will not be approved to destroy that classified paper, punch (key) tape or CD.  If a requirement is not supported the paper shredder may not be allowed to go through evaluation.
+            </p>
+            </div>
+            <div>
+             <label for="FeatureClaimsM"> Is this Supported: </label>
+     <select id="FeatureClaimsM" name="FeatureClaimsM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="FeatureClaimsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="FeatureClaimsD" name="FeatureClaimsD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+        <h4><b>User/Operator Guide</b>  </h4> 
+            <div>
+            <p>
+             The paper shredders must have an English version of the user/operator manual. The manual must include the following:
+                </p>
+                <ul>
+                <li>
+                  Accurate description of the paper shredders
+                    </li>
+                    <li>
+                     Definition of paper, punch (key) tape or CDs it will disintegrate
+                    </li>
+                    <li>
+                    List of hard disk drives it will destroy
+                    </li>
+                    <li>
+                    Accurate summary of each feature and function
+                    </li>
+                      <li>
+                    List of specifications (i.e., power consumption, motor size etc.)
+                    </li>
+                      <li>
+                    Maintenance procedures:
+                    </li>
+                    <ul>
+                    <li>
+                     Changing Filters   
+                    </li>
+                            <li>
+                     Remove a jam  
+                    </li>
+                            <li>
+                    Lubrication  
+                    </li>
+                            <li>
+                    Safety procedures
+                    </li>
+                    </ul>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="UserOperatorGuideM"> Is this Supported: </label>
+     <select id="UserOperatorGuideM" name="UserOperatorGuideM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="UserOperatorGuideD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="UserOperatorGuideD" name="UserOperatorGuideD" class="inputBlock">
+     </textarea>
+            
+        </div>
+         <div style="text-align: center;"> <h3><b>Power Requirements</b>  </h3></div> 
+          
+        <div>
+              
+        <h4><b>Electronic Operation</b>  </h4> 
+            <div>
+            <p>
+              The paper shredders will be approved for a power source that is evaluated in testing. Every power source for a paper shredders must be individually tested to claim approval.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ElectronicOperationM"> Is this Supported: </label>
+     <select id="ElectronicOperationM" name="ElectronicOperationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="ElectronicOperationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="ElectronicOperationD" name="ElectronicOperationD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+      
+        
+        
+         <div>
+              
+        <h4><b>On/Off Switch</b>  </h4> 
+            <div>
+            <p>
+             The paper shredders must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="On/OffSwitchM"> Is this Supported: </label>
+     <select id="On/OffSwitchM" name="On/OffSwitchM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="On/OffSwitchD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="On/OffSwitchD" name="MOn/OffSwitchD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Power Indication</b>  </h4> 
+            <div>
+            <p>
+             The paper shredders must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="PowerIndicationM"> Is this Supported: </label>
+     <select id="PowerIndicationM" name="PowerIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="PowerIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="PowerIndicationD" name="PowerIndicationD">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Ready Indication</b>  </h4> 
+            <div>
+            <p>
+            If the paper shredders requires a warm up period before operation it must have a ready indication display.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ReadyIndicationM"> Is this Supported: </label>
+     <select id="ReadyIndicationM" name="ReadyIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="ReadyIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="ReadyIndicationD" name="ReadyIndicationD">
+     </textarea>
+            
+                            
+        </div>
+        
+      <div style="text-align: center;"> <h3><b>Safety and Environmental</b>  </h3></div> 
+          
+             <div>
+              
+        <h4><b>Emergency Off </b>  </h4> 
+            <div>
+            <p>
+            The opitcal destruction  must have an emergency stop mechanism within easy reach of an operator. The emergency procedure must be documented. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="EmergencyOffM"> Is this Supported: </label>
+     <select id="EmergencyOffM" name="EmergencyOffM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="EmergencyOffD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="EmergencyOffD" name="EmergencyOffD">
+     </textarea>
+            
+                            
+        </div>
+         
+           <div>
+              
+        <h4><b>Operator Protection </b>  </h4> 
+            <div>
+            <p>
+            The paper shredder  must protect the operator. The operator must not come into contact with any moving parts or projectiles during operation of the paper shredder . The paper shredder must be in a totally enclosed chamber that will not allow the destruction mechanism to work until a door is closed, totally enclosing the paper shredder.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+          <div>
+              
+        <h4><b>Reverse </b>  </h4> 
+            <div>
+            <p>
+A paper sheddar that feeds the punch tape into a input chute must either automatically or manually allow the reverse operation.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         
+         <div>
+              
+        <h4><b>Debris Collection </b>  </h4> 
+            <div>
+            <p>
+            Any debris that is created during the deformation process must be collected in a bin. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         <div>
+              
+        <h4><b>Debris Full </b>  </h4> 
+            <div>
+            <p>
+           The paper shredder must have a debris full indicator and must automatically shut off. This must be a actual measurement of the level of debris that is the bin and not based on time or other criteria.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+          <div>
+              
+        <h4><b>Debris Handling</b>  </h4> 
+            <div>
+            <p>
+            The paper shredder must have the ability for the operator to easily removed and empted the debris. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Noise</b>  </h4> 
+            <div>
+            <p>
+            Sound levels for the optical device  must be less than 85 dBA while operating. This level meets both the National Institute for Occupational Operational and Health (NIOSH) and the Occupational Operation and Health Administration (OSHA) standards of less than 85 DBA and less the 90 dBA respectively.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         <div style="text-align: center;"> <h3><b>Mechanical</b>  </h3></div> 
+           <div>
+              
+        <h4><b>Fit and Finish</b>  </h4> 
+            <div>
+            <p>
+           The optical  destruction device  should have a tight fit with no gaps between panels, loose panels, faulty doors, loose windows or sharp edges that could cause safety or operational issues.
+<br>The optical  destruction device should be a production unit that is complete and all claimed features should be operational. 
+
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+         
+          <div>
+              
+        <h4><b>Vibration</b>  </h4> 
+            <div>
+            <p>
+           The effects of vibration can be severe. Unchecked vibration can accelerate rates of wear (i.e. reduce bearing life) and damage equipment. Vibrating machinery can create noise, cause safety problems and lead to degradation in plant working conditions. 
+<br> The magnetic degausser must not exhibit vibration limits greater then what is shown in Table 3. The measurements will be taken at four random locations around the machine using a digital vibration instrument. 
+
+
+                </p>
+                <div id="soundtable">
+                <table  >
+                    <tr>
+                    <th>Vibration Limits
+                        </th>
+                        <th>Balance Condition <br>Displacement,  <br>mils Peak to Peak <br> at 1x rpm</th>
+                         <th>Overall Velocity  <br>in/sec Peak 10 - <br>1,000 Hz</th>
+                        <th>
+                        Overall  <br>Acceleration, g <br> Peak 0 - 5,000 Hz
+                        </th>
+                    </tr>
+                <tr>
+                    <td>
+                    1,000-2,000 rpm
+                    </td>
+                    <td>2.0</td>
+                    <td>0.2</td>
+                    <td>0.5</td>
+                    </tr>
+                    <tr>
+                     <td>
+                    > 2,000 rpm
+                    </td>
+                         <td>1.0</td>
+                    <td>0.2</td>
+                    <td>1.0</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+       <div>    
+        <h4><b>Heat Generation</b>  </h4> 
+            <div>
+            <p>
+            A heat signature will be taken for electrically power machines using a heat signature camera on each side of the device. The signature should show no high temperature activity (red areas) on the paper shredder that could be dangerous to the environment or injure an operator.
+
+                </p>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+           <div>    
+        <h4><b>Calibration or Maintenance</b>  </h4> 
+            <div>
+            <p>
+            Any machine will require calibration and maintenance during its lifetime. If the hard disk drive destruction device requires calibration or maintenance by the operator if must be safe and reasonable easy to accomplished. The following are some specifics: 
+
+                </p>
+                
+                <ul>
+                <li>
+                    Unit Jamming must be cleared within 5 minutes.
+                    </li>
+                    <li> 
+                    Filters must be change within 5 minutes without using special tools.
+                    </li>
+                    <li>
+                    must be able to reset within 10 minute after a thermo shutdown. 
+                    </li>
+                    <li> 
+                   Lubricant should be able to be applied, refilled or replaced within 5 minutes.
+                    </li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+     </div>   
+     
+     
+     <div id="Block6" style='display:none;'>
+        
+        <div style="text-align: center;"> <h3><b>punch tape disintegrators</b>  </h3></div>  
+        
+        <div>
+           <h4><b>Disintegrate</b>  </h4> 
+            <div>
+            <p>
+              The punch tape disintegrator must reduce plastic and paper/plastic laminate punched (key) tape materials to 2.5 millimeter by 0.5 millimeter edge size, or less.
+            </p>
+                
+            </div>
+            <div>
+             <label for="DestructionM"> Is this Supported: </label>
+     <select id="DestructionM" name="DestructionM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="DestructionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="DestructionD" name="DestructionD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        
+          <div>
+           <h4><b>Operational Time</b>  </h4> 
+            <div>
+            <p>
+               The punch tape disintegrator must be able to operate continuously for one hour while destroying at least 250 inches of punch (key) tape. A jam must be cleared within 5 minutes. 
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+       
+        
+          <h3 style="text-align: center;"><b>Administrative Requirements</b> </h3>
+        
+         
+        <div>
+           <h4><b>Labels</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have a label that can be easily viewed and includes:
+                </p>
+                <ul>
+                <li>
+                  Company Name
+                    </li>
+                    <li>
+                    Model
+                    </li>
+                    <li>
+                    Serial Number
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="LabelsM"> Is this Supported: </label>
+     <select id="LabelsM" name="LabelsM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="LabelsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="LabelsD" name="LabelsD" class="inputBlock">
+     </textarea>
+            
+        </div>
+       
+        
+        <div>
+           <h4><b>Feature Claims</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrator vendor must specify the paper, punch (key) tape or CDs it will destroy and the requirements it will satisfy. If a paper, punch (key) tape or CD is not claimed it will be not be evaluated and will not be approved to destroy that classified  punch (key).  If a requirement is not supported the punch tape disintegrator may not be allowed to go through evaluation.
+            </p>
+            </div>
+            <div>
+             <label for="FeatureClaimsM"> Is this Supported: </label>
+     <select id="FeatureClaimsM" name="FeatureClaimsM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="FeatureClaimsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="FeatureClaimsD" name="FeatureClaimsD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+        <h4><b>User/Operator Guide</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have an English version of the user/operator manual. The manual must include the following:
+                </p>
+                <ul>
+                <li>
+                  Accurate description of the punch tape disintegrators
+                    </li>
+                    <li>
+                     Definition of paper, punch (key) tape or CDs it will disintegrate
+                    </li>
+                    <li>
+                    List of hard disk drives it will destroy
+                    </li>
+                    <li>
+                    Accurate summary of each feature and function
+                    </li>
+                      <li>
+                    List of specifications (i.e., power consumption, motor size etc.)
+                    </li>
+                      <li>
+                    Maintenance procedures:
+                    </li>
+                    <ul>
+                    <li>
+                     Changing Filters   
+                    </li>
+                            <li>
+                     Remove a jam  
+                    </li>
+                            <li>
+                    Lubrication  
+                    </li>
+                            <li>
+                    Safety procedures
+                    </li>
+                    </ul>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="UserOperatorGuideM"> Is this Supported: </label>
+     <select id="UserOperatorGuideM" name="UserOperatorGuideM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="UserOperatorGuideD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="UserOperatorGuideD" name="UserOperatorGuideD" class="inputBlock">
+     </textarea>
+            
+        </div>
+         <div style="text-align: center;"> <h3><b>Power Requirements</b>  </h3></div> 
+          
+        <div>
+              
+        <h4><b>Electronic Operation</b>  </h4> 
+            <div>
+            <p>
+              The punch tape disintegrators will be approved for a power source that is evaluated in testing. Every power source for a punch tape disintegrators must be individually tested to claim approval.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ElectronicOperationM"> Is this Supported: </label>
+     <select id="ElectronicOperationM" name="ElectronicOperationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="ElectronicOperationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="ElectronicOperationD" name="ElectronicOperationD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+      
+        
+        
+         <div>
+              
+        <h4><b>On/Off Switch</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="On/OffSwitchM"> Is this Supported: </label>
+     <select id="On/OffSwitchM" name="On/OffSwitchM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="On/OffSwitchD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="On/OffSwitchD" name="MOn/OffSwitchD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Power Indication</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="PowerIndicationM"> Is this Supported: </label>
+     <select id="PowerIndicationM" name="PowerIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="PowerIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="PowerIndicationD" name="PowerIndicationD">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Ready Indication</b>  </h4> 
+            <div>
+            <p>
+            If the punch tape disintegrators requires a warm up period before operation it must have a ready indication display.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ReadyIndicationM"> Is this Supported: </label>
+     <select id="ReadyIndicationM" name="ReadyIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="ReadyIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="ReadyIndicationD" name="ReadyIndicationD">
+     </textarea>
+            
+                            
+        </div>
+        
+      <div style="text-align: center;"> <h3><b>Safety and Environmental</b>  </h3></div> 
+          
+             <div>
+              
+        <h4><b>Emergency Off </b>  </h4> 
+            <div>
+            <p>
+            The opitcal destruction  must have an emergency stop mechanism within easy reach of an operator. The emergency procedure must be documented. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="EmergencyOffM"> Is this Supported: </label>
+     <select id="EmergencyOffM" name="EmergencyOffM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="EmergencyOffD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="EmergencyOffD" name="EmergencyOffD">
+     </textarea>
+            
+                            
+        </div>
+         
+           <div>
+              
+        <h4><b>Operator Protection </b>  </h4> 
+            <div>
+            <p>
+            The punch tape disintegrators  must protect the operator. The operator must not come into contact with any moving parts or projectiles during operation of the punch tape disintegrators . The punch tape disintegrators must be in a totally enclosed chamber that will not allow the destruction mechanism to work until a door is closed, totally enclosing the punch tape disintegrators.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+          <div>
+              
+        <h4><b>Reverse </b>  </h4> 
+            <div>
+            <p>
+The punch tape disintegrator must have a debris full indicator and must automatically shut off. This must be a actual measurement of the level of debris that is the bin and not based on time or other criteria.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         
+         <div>
+              
+        <h4><b>Debris Collection </b>  </h4> 
+            <div>
+            <p>
+            Any debris that is created during the deformation process must be collected in a bin. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         <div>
+              
+        <h4><b>Debris Full </b>  </h4> 
+            <div>
+            <p>
+           The punch tape disintegrators must have a debris full indicator and must automatically shut off. This must be a actual measurement of the level of debris that is the bin and not based on time or other criteria.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+          <div>
+              
+        <h4><b>Debris Handling</b>  </h4> 
+            <div>
+            <p>
+            The punch tape disintegrators must have the ability for the operator to easily removed and empted the debris. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Noise</b>  </h4> 
+            <div>
+            <p>
+            Sound levels for the optical device  must be less than 85 dBA while operating. This level meets both the National Institute for Occupational Operational and Health (NIOSH) and the Occupational Operation and Health Administration (OSHA) standards of less than 85 DBA and less the 90 dBA respectively.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         <div style="text-align: center;"> <h3><b>Mechanical</b>  </h3></div> 
+           <div>
+              
+        <h4><b>Fit and Finish</b>  </h4> 
+            <div>
+            <p>
+           The punch tape disintegrator  should have a tight fit with no gaps between panels, loose panels, faulty doors, loose windows or sharp edges that could cause safety or operational issues.
+<br>The punch tape disintegrator should be a production unit that is complete and all claimed features should be operational. 
+
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+         
+          <div>
+              
+        <h4><b>Vibration</b>  </h4> 
+            <div>
+            <p>
+           The effects of vibration can be severe. Unchecked vibration can accelerate rates of wear (i.e. reduce bearing life) and damage equipment. Vibrating machinery can create noise, cause safety problems and lead to degradation in plant working conditions. 
+<br> The magnetic degausser must not exhibit vibration limits greater then what is shown in Table 3. The measurements will be taken at four random locations around the machine using a digital vibration instrument. 
+
+
+                </p>
+                <div id="soundtable">
+                <table  >
+                    <tr>
+                    <th>Vibration Limits
+                        </th>
+                        <th>Balance Condition <br>Displacement,  <br>mils Peak to Peak <br> at 1x rpm</th>
+                         <th>Overall Velocity  <br>in/sec Peak 10 - <br>1,000 Hz</th>
+                        <th>
+                        Overall  <br>Acceleration, g <br> Peak 0 - 5,000 Hz
+                        </th>
+                    </tr>
+                <tr>
+                    <td>
+                    1,000-2,000 rpm
+                    </td>
+                    <td>2.0</td>
+                    <td>0.2</td>
+                    <td>0.5</td>
+                    </tr>
+                    <tr>
+                     <td>
+                    > 2,000 rpm
+                    </td>
+                         <td>1.0</td>
+                    <td>0.2</td>
+                    <td>1.0</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+       <div>    
+        <h4><b>Heat Generation</b>  </h4> 
+            <div>
+            <p>
+            A heat signature will be taken for electrically power machines using a heat signature camera on each side of the device. The signature should show no high temperature activity (red areas) on the punch tape disintegrators that could be dangerous to the environment or injure an operator.
+
+                </p>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+           <div>    
+        <h4><b>Calibration or Maintenance</b>  </h4> 
+            <div>
+            <p>
+            Any machine will require calibration and maintenance during its lifetime. If the hard disk drive destruction device requires calibration or maintenance by the operator if must be safe and reasonable easy to accomplished. The following are some specifics: 
+
+                </p>
+                
+                <ul>
+                <li>
+                    Unit Jamming must be cleared within 5 minutes.
+                    </li>
+                    <li> 
+                    Filters must be change within 5 minutes without using special tools.
+                    </li>
+                    <li>
+                    must be able to reset within 10 minute after a thermo shutdown. 
+                    </li>
+                    <li> 
+                   Lubricant should be able to be applied, refilled or replaced within 5 minutes.
+                    </li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+     </div>   
+          
+     
+     <div id="Block7" style='display:none;'>
+        
+        <div style="text-align: center;"> <h3><b>Solid State Disintegrator</b>  </h3></div>  
+        
+        <div>
+           <h4><b>Disintegrate</b>  </h4> 
+            <div>
+            <p>
+            (U) The solid state disintegrator must reduce a solid state storage device to a maximum edge size of 2 millimeter or less. 
+            </p>
+                
+            </div>
+            <div>
+             <label for="DestructionM"> Is this Supported: </label>
+     <select id="DestructionM" name="DestructionM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="DestructionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="DestructionD" name="DestructionD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        
+          <div>
+           <h4><b>Operational Time</b>  </h4> 
+            <div>
+            <p>
+              The solid state disintegrator must be able to operate continuously for one hour while destroying at least 100 miscellaneous solid state storage devices. The solid state disintegrator may jam up to three times per 100 units destroyed however a jam must be cleared within 5 minutes.  
+            </p>
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+       
+         
+         
+          <div>
+           <h4><b>Solid state storage device </b>  </h4> 
+            <div>
+            <p>
+             A solid state disintegrator must be able to destroy all or some of these solid state storage devices:
+
+            </p>
+                <ul>
+                <li>Blu-ray Disks (BD)</li>
+                    <li>Cell phones</li>
+                     <li>Tablets</li>
+                     <li>USB/Flash/Thumb Drives</li>
+                     <li>Solid State Drives inside desktop computers and laptops</li>
+                     <li>Circuit Boards</li>
+                     <li>SIM Cards, EMV Cards, Credit Cards and other Magnetic Strip Cards Optical storage devices include:</li>
+                    <ul>
+                     <li>CDs</li>
+                     <li>DVDs</li>
+                    </ul>
+                </ul>
+  
+
+            </div>
+            <div>
+             <label for="OperationalTimeM"> Is this Supported: </label>
+     <select id="OperationalTimeM" name="OperationalTimeM" >
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="OperationalTimeD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="OperationalTimeD" name="OperationalTimeD" class="inputBlock">
+     </textarea>
+        </div>
+       
+         
+        
+          <h3 style="text-align: center;"><b>Administrative Requirements</b> </h3>
+        
+         
+        <div>
+           <h4><b>Labels</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have a label that can be easily viewed and includes:
+                </p>
+                <ul>
+                <li>
+                  Company Name
+                    </li>
+                    <li>
+                    Model
+                    </li>
+                    <li>
+                    Serial Number
+                    </li>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="LabelsM"> Is this Supported: </label>
+     <select id="LabelsM" name="LabelsM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="LabelsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="LabelsD" name="LabelsD" class="inputBlock">
+     </textarea>
+            
+        </div>
+       
+        
+        <div>
+           <h4><b>Feature Claims</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrator vendor must specify the paper, punch (key) tape or CDs it will destroy and the requirements it will satisfy. If a paper, punch (key) tape or CD is not claimed it will be not be evaluated and will not be approved to destroy that classified  punch (key).  If a requirement is not supported the punch tape disintegrator may not be allowed to go through evaluation.
+            </p>
+            </div>
+            <div>
+             <label for="FeatureClaimsM"> Is this Supported: </label>
+     <select id="FeatureClaimsM" name="FeatureClaimsM">
+         <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="FeatureClaimsD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="FeatureClaimsD" name="FeatureClaimsD" class="inputBlock">
+     </textarea>
+        </div>
+        
+        <div>
+        <h4><b>User/Operator Guide</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have an English version of the user/operator manual. The manual must include the following:
+                </p>
+                <ul>
+                <li>
+                  Accurate description of the punch tape disintegrators
+                    </li>
+                    <li>
+                     Definition of paper, punch (key) tape or CDs it will disintegrate
+                    </li>
+                    <li>
+                    List of hard disk drives it will destroy
+                    </li>
+                    <li>
+                    Accurate summary of each feature and function
+                    </li>
+                      <li>
+                    List of specifications (i.e., power consumption, motor size etc.)
+                    </li>
+                      <li>
+                    Maintenance procedures:
+                    </li>
+                    <ul>
+                    <li>
+                     Changing Filters   
+                    </li>
+                            <li>
+                     Remove a jam  
+                    </li>
+                            <li>
+                    Lubrication  
+                    </li>
+                            <li>
+                    Safety procedures
+                    </li>
+                    </ul>
+                </ul>
+                
+            </div>
+            <div>
+             <label for="UserOperatorGuideM"> Is this Supported: </label>
+     <select id="UserOperatorGuideM" name="UserOperatorGuideM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="UserOperatorGuideD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="UserOperatorGuideD" name="UserOperatorGuideD" class="inputBlock">
+     </textarea>
+            
+        </div>
+         <div style="text-align: center;"> <h3><b>Power Requirements</b>  </h3></div> 
+          
+        <div>
+              
+        <h4><b>Electronic Operation</b>  </h4> 
+            <div>
+            <p>
+              The punch tape disintegrators will be approved for a power source that is evaluated in testing. Every power source for a punch tape disintegrators must be individually tested to claim approval.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ElectronicOperationM"> Is this Supported: </label>
+     <select id="ElectronicOperationM" name="ElectronicOperationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="ElectronicOperationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="ElectronicOperationD" name="ElectronicOperationD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+        
+      
+        
+        
+         <div>
+              
+        <h4><b>On/Off Switch</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="On/OffSwitchM"> Is this Supported: </label>
+     <select id="On/OffSwitchM" name="On/OffSwitchM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+           <div>
+              <label for="On/OffSwitchD">Describe How this is Supported:</label>
+            </div> 
+            <textarea id="On/OffSwitchD" name="MOn/OffSwitchD" class="inputBlock">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Power Indication</b>  </h4> 
+            <div>
+            <p>
+             The punch tape disintegrators must have On/Off Switch within easy access of the operator. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="PowerIndicationM"> Is this Supported: </label>
+     <select id="PowerIndicationM" name="PowerIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="PowerIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="PowerIndicationD" name="PowerIndicationD">
+     </textarea>
+            
+        </div>
+        
+         
+          <div>
+              
+        <h4><b>Ready Indication</b>  </h4> 
+            <div>
+            <p>
+            If the punch tape disintegrators requires a warm up period before operation it must have a ready indication display.
+                </p>
+                
+            </div>
+            <div>
+             <label for="ReadyIndicationM"> Is this Supported: </label>
+     <select id="ReadyIndicationM" name="ReadyIndicationM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="ReadyIndicationD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="ReadyIndicationD" name="ReadyIndicationD">
+     </textarea>
+            
+                            
+        </div>
+        
+      <div style="text-align: center;"> <h3><b>Safety and Environmental</b>  </h3></div> 
+          
+             <div>
+              
+        <h4><b>Emergency Off </b>  </h4> 
+            <div>
+            <p>
+            The opitcal destruction  must have an emergency stop mechanism within easy reach of an operator. The emergency procedure must be documented. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="EmergencyOffM"> Is this Supported: </label>
+     <select id="EmergencyOffM" name="EmergencyOffM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="EmergencyOffD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="EmergencyOffD" name="EmergencyOffD">
+     </textarea>
+            
+                            
+        </div>
+         
+           <div>
+              
+        <h4><b>Operator Protection </b>  </h4> 
+            <div>
+            <p>
+            The punch tape disintegrators  must protect the operator. The operator must not come into contact with any moving parts or projectiles during operation of the punch tape disintegrators . The punch tape disintegrators must be in a totally enclosed chamber that will not allow the destruction mechanism to work until a door is closed, totally enclosing the punch tape disintegrators.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+        
+         
+         <div>
+              
+        <h4><b>Debris Collection </b>  </h4> 
+            <div>
+            <p>
+            Any debris that is created during the deformation process must be collected in a bin. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         <div>
+              
+        <h4><b>Debris Full </b>  </h4> 
+            <div>
+            <p>
+           The punch tape disintegrators must have a debris full indicator and must automatically shut off. This must be a actual measurement of the level of debris that is the bin and not based on time or other criteria.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+          <div>
+              
+        <h4><b>Debris Handling</b>  </h4> 
+            <div>
+            <p>
+            The punch tape disintegrators must have the ability for the operator to easily removed and empted the debris. 
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+          <div>
+              
+        <h4><b>Noise</b>  </h4> 
+            <div>
+            <p>
+            Sound levels for the optical device  must be less than 85 dBA while operating. This level meets both the National Institute for Occupational Operational and Health (NIOSH) and the Occupational Operation and Health Administration (OSHA) standards of less than 85 DBA and less the 90 dBA respectively.
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+        
+         <div style="text-align: center;"> <h3><b>Mechanical</b>  </h3></div> 
+           <div>
+              
+        <h4><b>Fit and Finish</b>  </h4> 
+            <div>
+            <p>
+           The optical  destruction device  should have a tight fit with no gaps between panels, loose panels, faulty doors, loose windows or sharp edges that could cause safety or operational issues.
+<br>The Solid State Disintegrator should be a production unit that is complete and all claimed features should be operational. 
+
+                </p>
+                
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+         
+          <div>
+              
+        <h4><b>Vibration</b>  </h4> 
+            <div>
+            <p>
+           The effects of vibration can be severe. Unchecked vibration can accelerate rates of wear (i.e. reduce bearing life) and damage equipment. Vibrating machinery can create noise, cause safety problems and lead to degradation in plant working conditions. 
+<br> The magnetic degausser must not exhibit vibration limits greater then what is shown in Table 3. The measurements will be taken at four random locations around the machine using a digital vibration instrument. 
+
+
+                </p>
+                <div id="soundtable">
+                <table  >
+                    <tr>
+                    <th>Vibration Limits
+                        </th>
+                        <th>Balance Condition <br>Displacement,  <br>mils Peak to Peak <br> at 1x rpm</th>
+                         <th>Overall Velocity  <br>in/sec Peak 10 - <br>1,000 Hz</th>
+                        <th>
+                        Overall  <br>Acceleration, g <br> Peak 0 - 5,000 Hz
+                        </th>
+                    </tr>
+                <tr>
+                    <td>
+                    1,000-2,000 rpm
+                    </td>
+                    <td>2.0</td>
+                    <td>0.2</td>
+                    <td>0.5</td>
+                    </tr>
+                    <tr>
+                     <td>
+                    > 2,000 rpm
+                    </td>
+                         <td>1.0</td>
+                    <td>0.2</td>
+                    <td>1.0</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+            
+                            
+        </div>
+         
+       <div>    
+        <h4><b>Heat Generation</b>  </h4> 
+            <div>
+            <p>
+            A heat signature will be taken for electrically power machines using a heat signature camera on each side of the device. The signature should show no high temperature activity (red areas) on the punch tape disintegrators that could be dangerous to the environment or injure an operator.
+
+                </p>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+           <div>    
+        <h4><b>Calibration or Maintenance</b>  </h4> 
+            <div>
+            <p>
+            Any machine will require calibration and maintenance during its lifetime. If the hard disk drive destruction device requires calibration or maintenance by the operator if must be safe and reasonable easy to accomplished. The following are some specifics: 
+
+                </p>
+                
+                <ul>
+                <li>
+                    Unit Jamming must be cleared within 5 minutes.
+                    </li>
+                    <li> 
+                    Filters must be change within 5 minutes without using special tools.
+                    </li>
+                    <li>
+                    must be able to reset within 10 minute after a thermo shutdown. 
+                    </li>
+                    <li> 
+                   Lubricant should be able to be applied, refilled or replaced within 5 minutes.
+                    </li>
+                </ul>
+            </div>
+            <div>
+             <label for="OperatorProtectionM"> Is this Supported: </label>
+     <select id="OperatorProtectionM" name="OperatorProtectionM">
+          <option>Choose an Item</option>
+         <option value=0>No</option>
+      <option value=1>Yes</option>
+      
+    </select>
+     </div>
+              
+           <div>
+              <label for="OperatorProtectionD">Describe How this is Supported:</label>
+            </div> 
+            <textarea class="inputBlock" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+    </div>
+     
+         
+     </div>  
+     
+     
+     
+          
+          </form>
+      </div>     
+      </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="contentBox" id="message" style="display: none;">
+          <div class="messagebox">
+          <div class="Messagebox">
+              <table>
+              <tr><th>Message History</th></tr>
+              <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 1 </button></td></tr>
+              <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 2 </button></td></tr>
+                <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 3 </button></td></tr>
+                    <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 4 </button></td></tr>
+                    <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 5 </button></td></tr>
+              </table>
+              </div>
+          <div style=" width: 100%; padding: 10px;">
+      <h4>Send message </h4>
+        <textarea class="inputBlock2" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+              <button style="padding: 3; background-color: #6caef0">Send</button>
+          </div>
+              </div>
+           </div>
+       <div class="contentBox" id="EM" style="display: none;"> </div>
+      <div class="contentBox" id="Requirment"style="display: none;"> </div>
+      
+      </div>
+
 </body>
 
 </html>

@@ -66,6 +66,7 @@ ul.breadcrumb li a:hover {
 .outerBox2 {
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 20px;
 }
 
 
@@ -162,13 +163,13 @@ td {
 
 
 /* Add a black background color to the top navigation */
-.topnav {
+#topnav {
   background-color: #9f9e9e;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+#topnav a {
   float: left;
   display: block;
   color: #f2f2f2;
@@ -179,26 +180,26 @@ td {
   border-bottom: 3px solid transparent;
 }
 
-.topnav a:hover {
+#topnav a:hover {
   border-bottom: 3px solid #00548b;
 }
 
-.topnav a.active {
+#topnav a.active {
   border-bottom: 3px solid #00548b;
 
 }
 
-.homebox {
+.contentBox {
     background-color: #f0f0f0;
     padding: 10px;
     border: 1px solid black;
 }
 
-.homebox table{
+.contentBox table{
    width: 100%
 }
 
-.homebox h2{
+.contentBox h2{
   margin: 0px 0px 10px 0px;
 border-bottom: 2px solid #00548b
 }
@@ -208,3 +209,138 @@ border-bottom: 2px solid #00548b
 }
 
 
+.boxlist {
+    margin-left: 6%;
+    width: 86%;
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    height: 275px;
+
+}
+
+
+
+#employee {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#employee td, #employee th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#employee tr:nth-child(even){background-color: #f2f2f2;}
+
+#employee th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #000000;
+  color: white;
+}
+
+
+
+.boxlist2 {
+background-color: white;
+
+}
+
+
+#button {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+#button td, #button th {
+  padding: 8px;
+}
+
+
+
+
+
+
+
+#request input[type=text],textarea,input[type=date], select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#ListOfName {
+    height: 100px;
+}
+
+#MarketingDescription {
+     height: 100px;
+}
+
+.inputBlock {
+    height: 100px;
+}
+
+.inputBlock2 {
+    height: 200px;
+   
+}
+
+#soundtable th {
+     padding: 10px;
+        border: 1px solid black;
+     text-align: center;
+}
+
+#soundtable td {
+     padding: 10px;
+        border: 1px solid black;
+     text-align: center;
+}
+
+
+
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+.messagebox {
+    display: flex;
+}
+
+.messageH {
+    width: 180px;
+}
+
+
+
+.Messagebox {
+ width: 180px;
+    
+}
