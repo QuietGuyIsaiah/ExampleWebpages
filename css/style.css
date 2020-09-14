@@ -308,9 +308,8 @@ background-color: white;
 
 
 
-<style>
 .accordion {
-  background-color: #eee;
+  background-color: #cbcbcb;
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -322,12 +321,15 @@ background-color: white;
   transition: 0.4s;
 }
 
+.active, .accordion:hover {
+  background-color: #8d8d8d; 
+}
 
 .panel {
   padding: 0 18px;
-  display: none;
-  background-color: white;
   overflow: hidden;
+background-color: #f0f0f0;
+    display: none;
 }
 
 .messagebox {
@@ -343,4 +345,22 @@ background-color: white;
 .Messagebox {
  width: 180px;
     
+}
+
+
+
+.simpleTable {
+    font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.simpleTable td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.simpleTable tr:nth-child(even) {
+  background-color: #dddddd;
 }

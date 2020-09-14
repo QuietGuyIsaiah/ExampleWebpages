@@ -404,7 +404,9 @@ for (var i = 0; i < 8; i++){
      
       
      <div id= "Boundary"> 
-         <h3 style="text-align: center;"><b>Boundaries</b> </h3>
+        
+         <button class="accordion">  <h3 style="text-align: center;"><b>Boundaries</b> </h3></button>
+         <div class= "panel">
          <p>The Vendor must define the boundaries of their machine. There are three boundaries: the destruction boundary, the support boundary and the outside boundary.<br><br>
              The destruction boundary contains the components that directly destroy or sanitizes the storage devices or protects the operator. As shown in Figure 1 these components are different depending on the type of device. Some example are: blades, punches, degaussers, containment chambers, filters, air handlers or protection shields. These components are critical in meeting the destruction requirements of the classified storage devices. If a component is changed it must be replace with exactly the same component. If a different component is used the evaluation is nullified and the device is not approved to sanitize classified storage devices. The device must go through another evaluation.<br><br>
              Components in the support boundary are still critical however they don't directly destroy storage devices or protect the operator. These components support components in the destruction boundary so they can do their job. Some examples are: motors, gears, brackets, enclosures, feeders, panels or maintenance indicators. If a component, in the support boundary, is changed it should be replaced with the same component, however another similar component can be used as long as it does not change the operation of components in the destruction boundary. This should be reported to the NSA/CSS within 5 business days.<br><br>
@@ -416,10 +418,15 @@ for (var i = 0; i < 8; i++){
          <img src="resources/figure1.png" alt="Figure 1" width="600" height="500">
          <p><b>Figure 1: Boundaries</b></p>
          </div>
+             </div>
          
-         <div> <h5><b>Table 1: Subsystem General Analysis Table</b>  </h5></div>   
+         <!--
+         <div> <h5><b>Table 1: Subsystem General Analysis Table</b>  </h5></div>
+        -->   
          
+         <button class="accordion"> <h5><b>Table 1: Subsystem General Analysis Table</b>  </h5></button>
          
+         <div class= "panel">
          <table id= "boundaryTable" >       
             
                     <tr>
@@ -438,6 +445,9 @@ for (var i = 0; i < 8; i++){
                     </tr>
 
         </table>
+         </div>
+         
+         
          
          <script language="javascript">
               var titles = ["Blades", 
@@ -520,10 +530,9 @@ for (var i = 0; i < 8; i++){
          </script>
          <br>
         
-         <div> <h5><b>Table 2: Subsystem Specific Analysis Table</b>  </h5></div>   
+         <button class="accordion"> <h5><b>Table 2: Subsystem Specific Analysis Table</b>  </h5></button>   
          
-          <br>
-         
+         <div class= "panel">
           <table id= "boundaryTable2" >       
             
                     <tr>
@@ -542,6 +551,7 @@ for (var i = 0; i < 8; i++){
                     </tr>
 
         </table>
+         </div>
          
          <script language="javascript">
                   
@@ -590,11 +600,31 @@ for (var i = 0; i < 8; i++){
          </script> 
          
      </div>
+     
+     
+     <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+     
+     
      <div id="Block0">
         
         <div style="text-align: center;"> <h4><b>Pick a type </b>  </h4></div>
          <p>
-              This is in the Equipment Description Section
+              This is in the Equipment Description Section. Please go pick a type.
             </p>
         
         
@@ -5310,9 +5340,10 @@ The punch tape disintegrator must have a debris full indicator and must automati
          
      </div>  
      
-     
-     
-          
+    <div style="display: flex;">
+     <button>Submit</button>
+               <button>Save</button>
+        </div>
           </form>
       </div>     
       </div>
@@ -5345,8 +5376,86 @@ The punch tape disintegrator must have a debris full indicator and must automati
           </div>
               </div>
            </div>
-       <div class="contentBox" id="EM" style="display: none;"> </div>
-      <div class="contentBox" id="Requirment"style="display: none;"> </div>
+      
+       <div class="contentBox" id="EM" style="display: none;"> 
+           <div><p> This tab shows generally where a device is during a CSDSR evaluation</p> </div>
+      <div style="margin-top: 30px;">
+                <table class="simpleTable">
+                    <tr>
+                        <th> Device Name </th>
+                         <th> MOU and Shipping Paperwork</th>
+                         <th> Evaluation Pending</th>
+                          <th> Evaluation</th>
+                          <th> Coordination</th>
+                          <th> Finalization</th>
+                    </tr>
+                    <tr>
+                        <td>Hero Crusher Super</td>
+                        <td>7/1/2020</td>
+                        <td>7/24/2020</td>
+                        <td>8/04/2020</td>
+                        <td>9/10/2020</td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                           <td>SideKick Shreddar</td>
+                        <td>7/15/2020</td>
+                        <td>9/13/2020</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                   
+                    <tr>
+                         <td> Ultra Hero Shedder</td>
+                        <td>9/15/2020</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+                </table>
+
+            </div>
+      
+      </div>
+      
+      <div class="contentBox" id="Requirment"style="display: none;"> 
+      
+          <div>
+          <p> Here contain the CSDSR's requirements</p>
+          </div>
+          
+          <div>
+            <ul>
+               <li>
+<a href="#">NSA/CSS Requirements for Paper Shredders</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Hard Disk Drive Destruction Devices</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Paper Disintegrators Devices</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Magnetic Degaussers</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Optical Destruction Devices</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Punch Tape Disintegrators</a>
+        </li> 
+                             <li>
+<a href="#">NSA/CSS Requirements for Solid State Disintegrator</a>
+        </li> 
+              </ul>
+        
+    </div>
+      
+      </div>
       
       </div>
 
