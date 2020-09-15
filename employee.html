@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+     <!--<script type="text/javascript" src='functions.js'> </script>-->
+  
+</head>
+
+
+<body>
+  <div style="display: inline">
+             <a href="SignIn.html"> <button type="button" name="OtherPage" class="btn btn-info"> Back to Sign In</button></a> 
+                </div>
+    <header>
+        <div class="headerBackground">
+            <div class="adjust">
+                <img src="resources/menu.svg" width="40" height="40">
+            </div>
+            <div class="container">
+
+                <div class="adjust">
+                    <img src="resources/logo.png" width="200" height="50">
+                </div>
+                <div>
+                    <p>National Security Agency Central Security Service</p>
+                    <h4> Defending our Nation. Securing the Future.</h4>
+                </div>
+            </div>
+            <div class="adjust">
+                <img src="resources/search.png" width="40" height="40">
+            </div>
+        </div>
+
+    </header>
+    
+    	
+    <br>
+    
+  <div class= "outerBox2">
+   <div id="topnav">
+  <a href="#Home"  data-value=0 class="active a">Home</a>
+  <a href="#vendors" data-value=1 class="a"> Vendors</a>
+  <a href="#Message" data-value=2 class="a"> Message</a>
+<a href="#KnowledgeBase" data-value=3 class="a">Knowledge Base</a>
+<a href="#CSDSR Requirements" data-value=4 class="a" >CSDSR Requirements</a>
+    </div>
+      
+
+<script>
+     
+    
+// Add active class to the current button (highlight it)
+var header = document.getElementById("topnav");
+    //console.log(header);
+var btns = header.getElementsByClassName("a");
+   
+    console.log(btns.length);
+for (var i = 0; i < btns.length; i++) {
+    
+  btns[i].addEventListener("click", function(i) {
+      
+      var contentBlock = [
+    "home", 
+    "requests",
+    "message",
+    "EM",
+    "Requirment",
+ ]; 
+      var b =$(this).data("value");
+      for(var j =0; j < contentBlock.length; j++){
+          document.getElementById(contentBlock[j]).style='display:none;';
+      }
+      //console.log(contentBlock[b]);
+      document.getElementById(contentBlock[b]).style='display:block;';
+      
+      
+  var current = document.getElementsByClassName("active");
+      console.log(current[0].name);
+  current[0].className = current[0].className.replace("active", "");
+  this.className += " active";
+document.getElementById('requestsDraft').style='display:none;';
+    
+      
+      
+  });
+    
+    
+}
+</script>
+   
+      <div id="home" > 
+   <div class="contentBox" >
+       <div>
+       <h2>
+           General Information 
+        </h2>
+       </div>
+    <table>
+       
+         <tr>
+            <td>
+            <b> Name: </b>
+        </td> 
+             <td>
+Mark H Riley    
+             </td> 
+        </tr>
+         <tr>
+            <td>
+            <b> Position: </b>
+        </td> 
+             <td>
+Contractor       </td> 
+        </tr>
+        <tr>
+            <td>
+            <b> email: </b>
+        </td> 
+             <td>
+guie1971@yahoo.com        </td> 
+        </tr>
+        <tr>
+            <td>
+            <b> Phone: </b>
+        </td> 
+             <td> 
+         862-204-5242
+
+
+        </td> 
+        </tr>
+       </table>
+</div>
+     
+      </div>
+      <div id="requests" style="display: none;"> 
+      <div class="contentBox">
+      <h2>
+       Vendors List 
+    </h2>
+             
+       <ul>
+          <li><a href="vendor.html"> Vendor name 1</a></li>
+            <li><a href="vendor.html"> Vendor name 2</a></li>
+            <li><a href="vendor.html"> Vendor name 3</a></li>
+            <li><a href="vendor.html"> Vendor name 4</a></li>
+            <li><a href="vendor.html"> Vendor name 5</a></li>
+            <li><a href="vendor.html"> Vendor name 6</a></li>
+            <li><a href="vendor.html"> Vendor name 7</a></li>
+            <li><a href="vendor.html"> Vendor name 8</a></li>
+            <li><a href="vendor.html"> Vendor name 9</a></li>
+            <li><a href="vendor.html"> Vendor name 10</a></li>
+            <li><a href="vendor.html"> Vendor name 11</a></li>
+            <li><a href="vendor.html"> Vendor name 12</a></li>
+          </ul>
+          
+          
+      </div>
+      </div>
+      
+      
+      
+      
+      <div class="contentBox" id="message" style="display: none;">
+          <div class="messagebox">
+          <div class="Messagebox">
+              <table>
+              <tr><th>Message History</th></tr>
+              <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 1 </button></td></tr>
+              <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 2 </button></td></tr>
+                <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 3 </button></td></tr>
+                    <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 4 </button></td></tr>
+                    <tr><td><button style="padding: 10px 20px; background-color: #c1cad4">Message 5 </button></td></tr>
+              </table>
+              </div>
+          <div style=" width: 100%; padding: 10px;">
+      <h4>Send message </h4>
+        <textarea class="inputBlock2" id="OperatorProtectionD" name="OperatorProtectionD">
+     </textarea>
+              <button style="padding: 3; background-color: #6caef0">Send</button>
+          </div>
+              </div>
+           </div>
+      
+       <div class="contentBox" id="EM" style="display: none;"> 
+           <div> <p> Search CSDSR's database to help anwser questions and queries </p></div>
+      <div style="margin-top: 20px;">
+             Search 
+            </div>
+            <div style="margin-top: 10px;">
+ <input style="width: 100%;" type="text" id="Search" name="Search">
+           </div>
+         <div style="margin-top: 30px;">
+                <a href="#"> <button type="button" name="OtherPage" class="btn btn-info"> Submit</button></a> 
+            </div>
+      </div>
+      
+      <div class="contentBox" id="Requirment"style="display: none;"> 
+      
+          <div>
+          <p> Here contain the CSDSR's requirements</p>
+          </div>
+          
+          <div>
+            <ul>
+               <li>
+<a href="#">NSA/CSS Requirements for Paper Shredders</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Hard Disk Drive Destruction Devices</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Paper Disintegrators Devices</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Magnetic Degaussers</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Optical Destruction Devices</a>
+        </li> 
+                        <li>
+<a href="#">NSA/CSS Requirements for Punch Tape Disintegrators</a>
+        </li> 
+                             <li>
+<a href="#">NSA/CSS Requirements for Solid State Disintegrator</a>
+        </li> 
+              </ul>
+        
+    </div>
+      
+      </div>
+      
+      </div>
+
+</body>
+
+</html>
+
