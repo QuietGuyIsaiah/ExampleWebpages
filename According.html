@@ -60,10 +60,14 @@
         </div>
     </div>
 
-      <div id="introDiv">  
+      
+          
+          <button type="button" class="accordion">
        <div class="title">
         <h2>Background</h2>
     </div> 
+          </button>
+              <div class="panel1">
               <div class="paragraph">
         <p> The Center for Storage Device Sanitization Research, CSDSR, guides the sanitization of information system (IS) storage devices. This web page provides resources for a vendor of storage device sanitization, the NSA/CSS Evaluated Products Lists (EPL) PDF, a Search function for the EPL, and contact information for The Center for Storage Device Sanitization Research. Here is a short video that explains the responsibilities and duties of the Center for Storage Device Sanitization Research.
         </p>
@@ -74,13 +78,17 @@
   Your browser does not support the video tag.
 </video> 
     </div>
-          
-    </div>
+          </div> 
         
-         <div id="EPLDiv">  
+         
+             
+    <button type="button" class="accordion">
        <div class="title">
         <h2>Evaluated Products Lists</h2>
     </div> 
+             </button>
+             
+              <div class="panel1">
               <div class="paragraph">
        <p>
         The NSA/CSS Evaluated Products Lists equipment that meets NSA/CSS specifications. These lists apply to all NSA/CSS elements and pertain to all IS storage devices utilized by NSA/CSS elements, contractors, and personnel. 
@@ -90,7 +98,7 @@
            </p>
                   </div>
           
-    </div>
+    
         
         
         <div  id="EPLListDiv" class="title">
@@ -109,10 +117,16 @@
             <li><a href="https://www.nsa.gov/Portals/70/documents/resources/everyone/media-destruction/NSAEPLSolidStateDisintegratorsMarch2020.pdf?ver=2020-03-17-094746-867" target="_blank">NSA/CSS Evaluated Product List for Solid State Disintegrators</a> Dated March 2020</li>
         </ul>
     </div>
+             </div>
         
+        
+        <button type="button" class="accordion">
     <div id="EPLSearchDiv" class="title">
         <h2>Search Evaluated Proudcts List for Device</h2>
     </div>
+        </button>
+        
+        <div class="panel1">
  <div class="paragraph">
        <p>
                To help our customers, the CSDSR has made a search function to help find devices that are on the EPL quicker.  
@@ -172,13 +186,16 @@
             </div>
         </div>
     </div>
-
+</div>
    
             <div id="vendorDiv">  
+                <button type="button" class="accordion">
        <div class="title">
         <h2>Vendor Information</h2>
     </div> 
-                    
+                </button>   
+                
+                <div class="panel1">
     <div class="intro">
     <p>This web page is for vendors of Information Storage (IS) sanitization systems and provides guidance for the NSA/CSS evaluation process. These devices must undergo an evaluation performed by the NSA/CSS and satisfy the requirements mandated for the type of storage devices being destroyed. Once the assessment is successful, the device will be included in the next update of the Evaluated Product List (EPL). The EPL is meant to serve as guidance; inclusion in this document is not an endorsement by the NSA/CSS or the U.S. Government. All listed products are approved for the destruction of TS/SCI and below.
 
@@ -336,8 +353,11 @@
           
     </div>
         
-     <div id="contact">
+     
+             <button type="button" class="accordion">
          <h2>Contact Information</h2>
+         </button>
+         <div class="panel1">
         <p>For further technical information contact the Center for Storage Device Sanitization Research at (301) 688-1053 or write us a message below<!--<a href="mailto:crdsr@nsa.gov">csdsr@nsa.gov</a>-->
         </p>
           <div class="Searchcontainer">
@@ -409,26 +429,28 @@
     </div>
 
 
-    
+ </div>   
 </div>
+        <script>
+                            var acc = document.getElementsByClassName("accordion");
+                            var i;
+
+                            for (i = 0; i < acc.length; i++) {
+                                acc[i].addEventListener("click", function() {
+                                    this.classList.toggle("active");
+                                    var panel = this.nextElementSibling;
+                                    if (panel.style.display === "block") {
+                                        panel.style.display = "none";
+                                    } else {
+                                        panel.style.display = "block";
+                                    }
+                                });
+                            }
+                        </script>
     </div>
-    <div class="refLink">
-    <table id="refTable">
-        <tr><th> Sections </th></tr>
-        <tr> <td><a href="#introDiv">Background</a></td></tr>
-        <tr> <td><a href="#EPLDiv">Evaluated Products Lists</a></td></tr>
-        <tr> <td><a href=#EPLListDiv>EPL PDFs</a></td></tr>
-        <tr> <td><a href="#EPLSearchDiv">EPL search</a></td></tr>
-        <tr> <td><a href="#vendorDiv">Vendor Information</a></td></tr>
-         <tr> <td><a href="#Requirements">Requirements PDFs for EPL</a></td></tr>
-        <tr> <td><a href="#EvalMatrixSec">Vendor Tracking Section</a></td></tr>
-        <tr> <td><a href="#EvalMatrix">Vendor Tracking Matrix </a></td></tr>
-        <tr> <td><a href="#contact">Contact Information</a></td></tr>
-        
-    </table>
-        
+
     </div>
-    </div>
+            <div style="height: 40px;"></div>
     <!--<div align="center">
 
        <a href="EPL.html"> <button type="button" name="load_data" id="load_data" class="btn btn-info"> Other webpage</button></a>

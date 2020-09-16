@@ -50,8 +50,8 @@ ul.breadcrumb li a:hover {
 }
 
 .outerBox {
-      margin-left: 10%;
-    margin-right: 10%;
+      margin-left: auto;
+    margin-right: auto;
     display: flex;
 
     
